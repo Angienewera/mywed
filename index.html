@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>西雙版納 ‧ 普洱景邁山 8天7夜 跨年深度奢旅手冊</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Web Fonts with CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- Chart.js CDN for traffic and budget analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal: '#0d5c55',
+              darkteal: '#083c37',
+              gold: '#c59b27',
+              amber: '#d97706',
+              emerald: '#059669',
+              slatebg: '#f8fafc'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .timeline-dot::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 24px;
+      bottom: -24px;
+      width: 2px;
+      background: #e2e8f0;
+    }
+    .timeline-item:last-child .timeline-dot::before {
+      display: none;
+    }
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-[#f7f8fa] text-slate-800 antialiased font-sans min-h-screen pb-24">
+
+  <header class="sticky top-0 z-50 bg-brand-darkteal/95 backdrop-blur-md text-white border-b border-teal-800/40 shadow-sm">
+    <div class="max-w-md mx-auto px-4 py-2.5 flex items-center justify-between">
+      <div>
+        <span class="text-[10px] font-semibold tracking-wider uppercase text-amber-300">UNESCO Tea Forest & NYE Gala</span>
+        <h1 class="text-sm font-bold tracking-tight flex items-center gap-1.5">
+          <span>版納 ‧ 景邁山奢旅手冊</span>
+          <span class="text-[11px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full border border-amber-400/30">8天7夜</span>
+        </h1>
+      </div>
+      <button onclick="toggleQuickMenu()" class="p-1.5 text-teal-100 hover:text-white rounded-lg active:bg-teal-900 text-sm">
+        <i class="fa-solid fa-circle-info text-base"></i>
+      </button>
+    </div>
+
+    <!-- Horizontal Date & Category Scroll Tabs -->
+    <nav class="max-w-md mx-auto px-2 overflow-x-auto no-scrollbar border-t border-teal-800/60 py-2 flex items-center gap-1.5" id="tabsNav">
+      <button onclick="switchView('day1')" data-tab="day1" class="tab-btn px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-amber-400 text-slate-900 shadow-sm transition">
+        Day 1 <span class="opacity-75 font-normal">12/26</span>
+      </button>
+      <button onclick="switchView('day2')" data-tab="day2" class="tab-btn px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-teal-900/60 text-teal-100 hover:bg-teal-800 transition">
+        Day 2 <span class="opacity-75 font-normal">12/27</span>
+      </button>
+      <button onclick="switchView('day3')" data-tab="day3" class="tab-btn px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-teal-900/60 text-teal-100 hover:bg-teal-800 transition">
+        Day 3 <span class="opacity-75 font-normal">12/28</span>
+      </button>
+      <button onclick="switchView('day4')" data-tab="day4" class="tab-btn px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-teal-900/60 text-teal-100 hover:bg-teal-800 transition">
+        Day 4 <span class="opacity-75 font-normal">12/29 世遺</span>
+      </button>
+      <button onclick="switchView('day5')" data-tab="day5" class="tab-btn px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-teal-900/60 text-teal-100 hover:bg-teal-800 transition">
+        Day 5 <span class="opacity-75 font-normal">12/30 雲海</span>
+      </button>
+      <button onclick="switchView('day6')" data-tab="day6" class="tab-btn px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-teal-900/60 text-teal-100 hover:bg-teal-800 transition">
+        Day 6 <span class="opacity-75 font-normal">12/31 跨年</span>
+      </button>
+      <button onclick="switchView('day7')" data-tab="day7" class="tab-btn px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-teal-900/60 text-teal-100 hover:bg-teal-800 transition">
+        Day 7 <span class="opacity-75 font-normal">01/01 長街宴</span>
+      </button>
+      <button onclick="switchView('day8')" data-tab="day8" class="tab-btn px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-teal-900/60 text-teal-100 hover:bg-teal-800 transition">
+        Day 8 <span class="opacity-75 font-normal">01/02 返程</span>
+      </button>
+      <!-- Dedicated Special Category Tabs at the end -->
+      <button onclick="switchView('highlights')" data-tab="highlights" class="tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-amber-600/90 text-white hover:bg-amber-500 border border-amber-300/40 transition flex items-center gap-1">
+        <i class="fa-solid fa-star"></i> 行程特色
+      </button>
+      <button onclick="switchView('dining')" data-tab="dining" class="tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-rose-700/80 text-white hover:bg-rose-600 border border-rose-400/40 transition flex items-center gap-1">
+        <i class="fa-solid fa-utensils"></i> 在地美食
+      </button>
+      <button onclick="switchView('checklist')" data-tab="checklist" class="tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-emerald-700/80 text-white hover:bg-emerald-600 border border-emerald-400/40 transition flex items-center gap-1">
+        <i class="fa-solid fa-list-check"></i> 打包與預約檢查清單
+      </button>
+      <button onclick="switchView('analytics')" data-tab="analytics" class="tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-indigo-800/80 text-white hover:bg-indigo-700 border border-indigo-400/40 transition flex items-center gap-1">
+        <i class="fa-solid fa-chart-pie"></i> 交通與預算分析
+      </button>
+    </nav>
+  </header>
+
+  <main class="max-w-md mx-auto px-3.5 pt-3">
+
+    <div id="view-day1" class="day-view space-y-3">
+      <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-bold text-teal-800 tracking-wider">DAY 1 ‧ 12月26日 週五</span>
+          <h3 class="text-base font-bold text-slate-800">直飛抵達版納｜初見瀾滄江畔慢調</h3>
+          <p class="text-xs text-slate-500 mt-0.5"><i class="fa-solid fa-location-dot text-teal-600 mr-1"></i>西雙版納 景洪市 ｜ 步調：午後抵達休整，漫步夕陽金塔</p>
+        </div>
+        <span class="text-xs bg-teal-50 text-teal-700 font-semibold px-2 py-1 rounded-full border border-teal-200">微風暖冬</span>
+      </div>
+
+      <!-- Timeline Items -->
+      <div class="space-y-3 relative pl-2">
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>14:30 – 15:30</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">抵達嘎灑機場 ＆ 入住告莊五星度假旅宿</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">停留 1 小時</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">專車直達告莊景區內五星度假酒店（如洲際度假酒店或景棟寨高端景觀客棧），客房辦理入住並稍作休整。</p>
+          <div class="mt-2.5 rounded-xl overflow-hidden border border-slate-100">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=700&auto=format&fit=crop&q=80" alt="度假酒店實景" class="w-full h-36 object-cover" onerror="this.src='https://placehold.co/700x300/0d5c55/ffffff?text=Resort+Hotel'">
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=3290469459374355420" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-teal-700 font-medium hover:underline">
+              <i class="fa-solid fa-location-arrow text-teal-600 mr-1"></i>📍 Google Maps 導航
+            </a>
+            <a href="https://images.unsplash.com/photo-1566073771259-6a8506099945" target="_blank" class="inline-flex items-center text-slate-500 hover:text-slate-800">
+              <i class="fa-regular fa-image mr-1"></i>📷 實景照片
+            </a>
+          </div>
+        </div>
+
+        <!-- Transit Info 1 -->
+        <div class="bg-amber-50/70 border border-amber-200/60 p-2.5 rounded-xl text-xs flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-car-side text-amber-600"></i>
+            <div>
+              <span class="font-bold text-amber-900">機場 ➔ 告莊酒店（專車直達）</span>
+              <span class="text-slate-500 text-[11px]">（約 10km ｜ 車程 20 分鐘）</span>
+            </div>
+          </div>
+          <span class="font-bold text-amber-800 bg-amber-100/70 px-2 py-0.5 rounded">約 ¥60</span>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>16:30 – 18:00</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">景洪大金塔基座與六國文化浮雕漫步</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">停留 1.5 小時</span>
+          </div>
+          <div class="flex items-center gap-2 mt-1.5">
+            <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium"><i class="fa-solid fa-stairs mr-1"></i>平緩大理石階約 40 階</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">大金塔高 66 米，為告莊核心地標。九塔十二寨浮雕走廊在傍晚夕陽映照下金碧輝煌。</p>
+          <div class="mt-2.5 rounded-xl overflow-hidden border border-slate-100">
+            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=700&auto=format&fit=crop&q=80" alt="景洪大金塔" class="w-full h-36 object-cover" onerror="this.src='https://placehold.co/700x300/c59b27/ffffff?text=Golden+Pagoda'">
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=1574304758515874331" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-teal-700 font-medium hover:underline">
+              <i class="fa-solid fa-location-arrow text-teal-600 mr-1"></i>📍 Google Maps 導航
+            </a>
+            <a href="https://images.unsplash.com/photo-1596422846543-75c6fc197f07" target="_blank" class="inline-flex items-center text-slate-500 hover:text-slate-800">
+              <i class="fa-regular fa-image mr-1"></i>📷 實景照片
+            </a>
+          </div>
+        </div>
+
+        <!-- Dinner -->
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md"><i class="fa-solid fa-utensils mr-1"></i>18:30 – 20:00 晚宴</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">曼霖軒傣味特色餐廳（原味無辣）</h4>
+            </div>
+            <span class="text-[10px] bg-red-50 text-red-700 font-bold px-2 py-0.5 rounded-full border border-red-200">🐟 必比登推介級</span>
+          </div>
+          <div class="bg-emerald-50 text-emerald-800 text-[11px] p-2 rounded-lg mt-2 font-medium">
+            招牌菜色：純蒜鹽香茅草烤羅非魚（指定免辣）、菠蘿紫米飯、原味包燒野生牛肝菌。
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?q=Manlinxuan+Dai+Restaurant+Gaozhuang+Xishuangbanna" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-teal-700 font-medium hover:underline">
+              <i class="fa-solid fa-location-arrow text-teal-600 mr-1"></i>📍 Google Maps 餐廳導航
+            </a>
+            <a href="https://images.unsplash.com/photo-1544025162-d76694265947" target="_blank" class="inline-flex items-center text-slate-500 hover:text-slate-800">
+              <i class="fa-regular fa-image mr-1"></i>📷 實景照片
+            </a>
+          </div>
+        </div>
+
+        <!-- Transit Info 2 -->
+        <div class="bg-amber-50/70 border border-amber-200/60 p-2.5 rounded-xl text-xs flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-taxi text-amber-600"></i>
+            <div>
+              <span class="font-bold text-amber-900">酒店 ➔ 晚宴餐廳（市內叫車）</span>
+              <span class="text-slate-500 text-[11px]">（約 1.5km ｜ 車程 5 分鐘）</span>
+            </div>
+          </div>
+          <span class="font-bold text-amber-800 bg-amber-100/70 px-2 py-0.5 rounded">約 ¥10</span>
+        </div>
+
+        <!-- Timeline Item 3 -->
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>20:30 – 21:30</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">瀾滄江景觀步道慢走吹風</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">停留 1 小時</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2">避開夜市擁擠攤位，漫步平整親水木棧道（無垂直階梯），感受熱帶江風，隨後早點休息蓄力。</p>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=4914279054532427877" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <a href="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day Summary -->
+      <div class="bg-slate-100 p-3 rounded-xl text-xs space-y-1.5 border border-slate-200 text-slate-700">
+        <div class="flex justify-between font-bold text-slate-800">
+          <span>今日交通結算 (2人)</span>
+          <span class="text-amber-800">車程約 25 分鐘 ｜ 約 ¥70</span>
+        </div>
+        <div class="text-[11px] text-slate-500">大眾對比：機場大巴轉公車需 60 分鐘且需步行 500 公尺（約 ¥34/2人），首日強烈建議專車。</div>
+      </div>
+    </div>
+
+    <div id="view-day2" class="day-view space-y-3 hidden">
+      <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-bold text-teal-800 tracking-wider">DAY 2 ‧ 12月27日 週六</span>
+          <h3 class="text-base font-bold text-slate-800">中科院熱帶植物園｜名樹奇花雨林巡禮</h3>
+          <p class="text-xs text-slate-500 mt-0.5"><i class="fa-solid fa-location-dot text-teal-600 mr-1"></i>勐臘縣勐侖島 ｜ 步調：全日專車隨行，西區電瓶車漫遊</p>
+        </div>
+        <span class="text-xs bg-emerald-50 text-emerald-700 font-semibold px-2 py-1 rounded-full border border-emerald-200">國家 5A 級</span>
+      </div>
+
+      <div class="space-y-3 relative pl-2">
+        <div class="bg-amber-50/70 border border-amber-200/60 p-2.5 rounded-xl text-xs flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-van-shuttle text-amber-600"></i>
+            <div>
+              <span class="font-bold text-amber-900">告莊 ⇄ 植物園西門（專車包車隨行）</span>
+              <span class="text-slate-500 text-[11px]">（單程 60km ｜ 往返約 2 小時）</span>
+            </div>
+          </div>
+          <span class="font-bold text-amber-800 bg-amber-100/70 px-2 py-0.5 rounded">約 ¥380/天</span>
+        </div>
+
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>09:30 – 12:30</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">【🎟️ 需預約】中國科學院熱帶植物園（西區）</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">停留 3 小時</span>
+          </div>
+          <div class="flex items-center gap-2 mt-1.5">
+            <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded"><i class="fa-solid fa-stairs mr-1"></i>平緩草坪步道，台階 &lt; 80 階</span>
+            <span class="text-[10px] bg-amber-50 text-amber-800 px-2 py-0.5 rounded">電瓶車全程接駁</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">中國面積最大植物園。造訪巨型王蓮池、奇花異木園、百香園與國樹國花園，近距觀察雨林絞殺與巨大板根現象。</p>
+          <div class="mt-2.5 rounded-xl overflow-hidden border border-slate-100">
+            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=700&auto=format&fit=crop&q=80" alt="熱帶植物園王蓮池" class="w-full h-36 object-cover" onerror="this.src='https://placehold.co/700x300/0d5c55/ffffff?text=XTBG+Garden'">
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=4637018476359291907" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-teal-700 font-medium hover:underline">
+              <i class="fa-solid fa-location-arrow text-teal-600 mr-1"></i>📍 Google Maps 導航
+            </a>
+            <a href="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc" target="_blank" class="inline-flex items-center text-slate-500 hover:text-slate-800">
+              <i class="fa-regular fa-image mr-1"></i>📷 實景照片
+            </a>
+          </div>
+        </div>
+
+        <!-- Lunch -->
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md"><i class="fa-solid fa-utensils mr-1"></i>12:30 – 13:30 午餐</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">植物園西區綠島生態餐廳</h4>
+            </div>
+            <span class="text-[10px] bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded-full border border-emerald-200">🌿 在地雨林鮮蔬</span>
+          </div>
+          <div class="bg-emerald-50 text-emerald-800 text-[11px] p-2 rounded-lg mt-2 font-medium">
+            招牌菜色：清燉生態土雞湯、芭蕉花炒肉片（完全免辣）、清炒雨林鮮時蔬。
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=6354949521049287015" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 餐廳導航</a>
+            <a href="https://images.unsplash.com/photo-1504674900247-0877df9cc836" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>15:30 – 17:30</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">專車返抵告莊 ＆ 靜謐茶空間品茗小憩</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">停留 2 小時</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2">避開午後烈日回到景洪，在專業茶席細細品鑑易武古樹純料普洱生茶，清甜回甘。</p>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=5366183507770079842" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <a href="https://images.unsplash.com/photo-1576092768241-dec231879fc3" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <!-- Dinner -->
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md"><i class="fa-solid fa-utensils mr-1"></i>18:30 – 20:00 晚餐</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">七彩野生菌松茸土雞煲火鍋（原湯無辣）</h4>
+            </div>
+            <span class="text-[10px] bg-amber-50 text-amber-700 font-bold px-2 py-0.5 rounded-full border border-amber-200">🍲 滋補名店</span>
+          </div>
+          <div class="bg-emerald-50 text-emerald-800 text-[11px] p-2 rounded-lg mt-2 font-medium">
+            招牌菜色：松茸與野生牛肝菌原汁金湯（慢火文熬20分鐘鮮美絕倫）、走地土雞肉、手工鮮菌麵。
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?q=Wild+Mushroom+Chicken+Hotpot+Jinghong+Xishuangbanna" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <a href="https://images.unsplash.com/photo-1547496502-affa22d38842" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <div class="bg-amber-50/70 border border-amber-200/60 p-2.5 rounded-xl text-xs flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-taxi text-amber-600"></i>
+            <div>
+              <span class="font-bold text-amber-900">告莊 ⇄ 菌菇火鍋店（往返叫車）</span>
+              <span class="text-slate-500 text-[11px]">（往返 6km ｜ 車程 20 分鐘）</span>
+            </div>
+          </div>
+          <span class="font-bold text-amber-800 bg-amber-100/70 px-2 py-0.5 rounded">約 ¥30</span>
+        </div>
+      </div>
+
+      <div class="bg-slate-100 p-3 rounded-xl text-xs space-y-1.5 border border-slate-200 text-slate-700">
+        <div class="flex justify-between font-bold text-slate-800">
+          <span>今日交通結算 (2人)</span>
+          <span class="text-amber-800">車程約 2 小時 20 分 ｜ 約 ¥410</span>
+        </div>
+        <div class="text-[11px] text-slate-500">大眾客運對比：班車雙人約 ¥130，但往返需 4 小時且回程易客滿無座，包車省下 1.5 小時以上。</div>
+      </div>
+    </div>
+
+    <div id="view-day3" class="day-view space-y-3 hidden">
+      <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-bold text-teal-800 tracking-wider">DAY 3 ‧ 12月28日 週日</span>
+          <h3 class="text-base font-bold text-slate-800">皇家園林文化、總佛寺與《新傣秀》盛典</h3>
+          <p class="text-xs text-slate-500 mt-0.5"><i class="fa-solid fa-location-dot text-teal-600 mr-1"></i>景洪市區 ｜ 步調：平地漫步，五星中餐，視覺奇幻大秀</p>
+        </div>
+        <span class="text-xs bg-amber-50 text-amber-700 font-semibold px-2 py-1 rounded-full border border-amber-200">文化演藝</span>
+      </div>
+
+      <div class="space-y-3 relative pl-2">
+        <div class="bg-amber-50/70 border border-amber-200/60 p-2.5 rounded-xl text-xs flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-taxi text-amber-600"></i>
+            <div>
+              <span class="font-bold text-amber-900">告莊 ➔ 曼聽公園（市內叫車）</span>
+              <span class="text-slate-500 text-[11px]">（約 4.5km ｜ 車程 12 分鐘）</span>
+            </div>
+          </div>
+          <span class="font-bold text-amber-800 bg-amber-100/70 px-2 py-0.5 rounded">約 ¥15</span>
+        </div>
+
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>09:00 – 12:00</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">【🎟️ 需預約】曼聽皇家御花園 ＋ 總佛寺直通</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">停留 3 小時</span>
+          </div>
+          <div class="flex items-center gap-2 mt-1.5">
+            <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded"><i class="fa-solid fa-stairs mr-1"></i>平整步道，大殿階梯約 120 階 (設坡道)</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">昔日傣王御花園，白塔與御象苑平緩穿入總佛寺中庭。金碧輝煌之南傳佛教聖殿，莊嚴寧靜。</p>
+          <div class="mt-2.5 rounded-xl overflow-hidden border border-slate-100">
+            <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=700&auto=format&fit=crop&q=80" alt="曼聽公園與總佛寺" class="w-full h-36 object-cover" onerror="this.src='https://placehold.co/700x300/c59b27/ffffff?text=Manting+Park'">
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=9569703208171815309" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <a href="https://images.unsplash.com/photo-1548013146-72479768bada" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <div class="bg-amber-50/70 border border-amber-200/60 p-2.5 rounded-xl text-xs flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-taxi text-amber-600"></i>
+            <div>
+              <span class="font-bold text-amber-900">曼聽公園 ➔ 喜來登中餐廳</span>
+              <span class="text-slate-500 text-[11px]">（約 3.5km ｜ 車程 10 分鐘）</span>
+            </div>
+          </div>
+          <span class="font-bold text-amber-800 bg-amber-100/70 px-2 py-0.5 rounded">約 ¥15</span>
+        </div>
+
+        <!-- Lunch -->
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md"><i class="fa-solid fa-utensils mr-1"></i>12:30 – 13:30 午餐</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">喜來登酒店 ‧ 采悅軒中餐廳</h4>
+            </div>
+            <span class="text-[10px] bg-amber-50 text-amber-700 font-bold px-2 py-0.5 rounded-full border border-amber-200">⭐ 米其林主廚水準</span>
+          </div>
+          <div class="bg-emerald-50 text-emerald-800 text-[11px] p-2 rounded-lg mt-2 font-medium">
+            主廚定制無辣菜色：國宴香茅烤排骨（完全不辣）、香竹清蒸湄公河江魚、菠蘿鮮果紫米飯。
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?q=Sheraton+Grand+Xishuangbanna+Yue+Chinese+Restaurant" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 餐廳導航</a>
+            <a href="https://images.unsplash.com/photo-1555396273-367ea4eb4db5" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>14:00 – 17:30</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">酒店安靜午休 ＆ 告莊非遺手工銀器街漫遊</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">停留 3.5 小時</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2">午後客房小憩蓄力，傍晚於陰涼街巷近距離欣賞傣族手工製銀與傣錦非遺編織技藝。</p>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=5366183507770079842" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <a href="https://images.unsplash.com/photo-1513519245088-0e12902e5a38" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <div class="bg-amber-50/70 border border-amber-200/60 p-2.5 rounded-xl text-xs flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-taxi text-amber-600"></i>
+            <div>
+              <span class="font-bold text-amber-900">告莊 ⇄ 融創孔雀公主劇院（往返叫車）</span>
+              <span class="text-slate-500 text-[11px]">（往返 16km ｜ 車程 40 分鐘）</span>
+            </div>
+          </div>
+          <span class="font-bold text-amber-800 bg-amber-100/70 px-2 py-0.5 rounded">約 ¥50</span>
+        </div>
+
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>19:45 – 21:00</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">【🎟️ 需預約】融創孔雀公主大劇院《新傣秀》</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">觀演 70 分鐘</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">國際頂級室內水上環形劇院，結合高空跳水、水幕光影與傣族神話史詩。無大鍋流水席綁定，純享震撼視聽。</p>
+          <div class="mt-2.5 rounded-xl overflow-hidden border border-slate-100">
+            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=700&auto=format&fit=crop&q=80" alt="新傣秀大劇院實景" class="w-full h-36 object-cover" onerror="this.src='https://placehold.co/700x300/083c37/ffffff?text=Dai+Show+Theater'">
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?q=Sunac+Dai+Show+Theater+Xishuangbanna" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 劇院導航</a>
+            <a href="https://images.unsplash.com/photo-1514525253161-7a46d19cd819" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-100 p-3 rounded-xl text-xs space-y-1.5 border border-slate-200 text-slate-700">
+        <div class="flex justify-between font-bold text-slate-800">
+          <span>今日交通結算 (2人)</span>
+          <span class="text-amber-800">車程約 45 分鐘 ｜ 約 ¥80</span>
+        </div>
+        <div class="text-[11px] text-slate-500">市區叫車隨叫隨到，免去烈日下步行與等候公車之苦。</div>
+      </div>
+    </div>
+
+    <div id="view-day4" class="day-view space-y-3 hidden">
+      <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-bold text-teal-800 tracking-wider">DAY 4 ‧ 12月29日 週一</span>
+          <h3 class="text-base font-bold text-slate-800">前進世界遺產｜入駐景邁山與翁基古寨</h3>
+          <p class="text-xs text-slate-500 mt-0.5"><i class="fa-solid fa-location-dot text-teal-600 mr-1"></i>普洱瀾滄 景邁山 ｜ 步調：專車直達茶山，奢華別墅，探訪古寨</p>
+        </div>
+        <span class="text-xs bg-amber-500 text-white font-bold px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+          <i class="fa-solid fa-landmark"></i> UNESCO
+        </span>
+      </div>
+
+      <div class="space-y-3 relative pl-2">
+        <div class="bg-amber-50/70 border border-amber-200/60 p-2.5 rounded-xl text-xs flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-car-side text-amber-600"></i>
+            <div>
+              <span class="font-bold text-amber-900">告莊 ➔ 景邁柏聯酒店（商務專車直達）</span>
+              <span class="text-slate-500 text-[11px]">（135km ｜ 2.5–3小時高速）</span>
+            </div>
+          </div>
+          <span class="font-bold text-amber-800 bg-amber-100/70 px-2 py-0.5 rounded">包車約 ¥700/天</span>
+        </div>
+
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>12:00 – 13:30</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">入住景邁柏聯酒店 ＆ 茶園山景午餐</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">辦理入住</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">座落於萬畝有機茶園腹地之奢華度假酒店，房內配備地暖與雙循環暖氣。午間享用鮮茶泡飯與土雞蛋。</p>
+          <div class="mt-2.5 rounded-xl overflow-hidden border border-slate-100">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&auto=format&fit=crop&q=80" alt="景邁柏聯酒店環境" class="w-full h-36 object-cover" onerror="this.src='https://placehold.co/700x300/0d5c55/ffffff?text=Bolian+Resort+Jingmai'">
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=1618099884555584004" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <a href="https://images.unsplash.com/photo-1540555700478-4be289fbecef" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <!-- Transit to Wengji -->
+        <div class="bg-amber-50/70 border border-amber-200/60 p-2.5 rounded-xl text-xs flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-car-side text-amber-600"></i>
+            <div>
+              <span class="font-bold text-amber-900">酒店 ⇄ 翁基古寨（專車接送）</span>
+              <span class="text-slate-500 text-[11px]">（往返 24km ｜ 車程約 40 分鐘）</span>
+            </div>
+          </div>
+          <span class="font-bold text-emerald-800 bg-emerald-100/70 px-2 py-0.5 rounded">包車包含</span>
+        </div>
+
+        <!-- Wengji Village -->
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>14:00 – 17:00</span>
+                <span class="bg-amber-100 text-amber-900 border border-amber-300 text-[10px] px-2 py-0.5 rounded-md font-bold">🏛️ UNESCO 世界遺產</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">探訪翁基布朗族古寨 ＆ 火塘慢時光</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">停留 3 小時</span>
+          </div>
+          <div class="flex items-center gap-2 mt-1.5">
+            <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded"><i class="fa-solid fa-stairs mr-1"></i>青石板起伏約 150 階</span>
+            <span class="text-[10px] bg-amber-50 text-amber-800 px-2 py-0.5 rounded">車停外圍生態停車場</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">景邁山古茶林核心聚落。漫步干欄式古木樓，走進布朗族茶農家中圍坐火塘，品飲柴火烘烤之純料古樹生茶與柴火烤小土豆。</p>
+          <div class="mt-2.5 rounded-xl overflow-hidden border border-slate-100">
+            <img src="https://images.unsplash.com/photo-1508873696983-2df57046475a?w=700&auto=format&fit=crop&q=80" alt="翁基布朗族古寨" class="w-full h-36 object-cover" onerror="this.src='https://placehold.co/700x300/c59b27/ffffff?text=Wengji+Ancient+Village'">
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=14348280438304033655" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <a href="https://images.unsplash.com/photo-1508873696983-2df57046475a" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <!-- Dinner -->
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md"><i class="fa-solid fa-utensils mr-1"></i>18:00 – 19:30 晚餐</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">景邁柏聯酒店 ‧ 養生茶宴</h4>
+            </div>
+            <span class="text-[10px] bg-amber-50 text-amber-700 font-bold px-2 py-0.5 rounded-full border border-amber-200">⭐ 世遺茶宴</span>
+          </div>
+          <div class="bg-emerald-50 text-emerald-800 text-[11px] p-2 rounded-lg mt-2 font-medium">
+            以茶入菜極品推薦：古樹茶鮮葉炒走地雞蛋、普洱茶香秘製排骨、清炒高山野菜、茶油土雞煲。
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=1618099884555584004" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 餐廳導航</a>
+            <a href="https://images.unsplash.com/photo-1540555700478-4be289fbecef" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-100 p-3 rounded-xl text-xs space-y-1.5 border border-slate-200 text-slate-700">
+        <div class="flex justify-between font-bold text-slate-800">
+          <span>今日交通結算 (2人)</span>
+          <span class="text-amber-800">車程約 3 小時 20 分 ｜ 包車 ¥700</span>
+        </div>
+        <div class="text-[11px] text-slate-500">避坑警告：若搭高鐵至思茅站需轉乘 3.5 小時山路，耗時達 6 小時，包車直達省時一半以上。</div>
+      </div>
+    </div>
+
+    <div id="view-day5" class="day-view space-y-3 hidden">
+      <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-bold text-teal-800 tracking-wider">DAY 5 ‧ 12月30日 週二</span>
+          <h3 class="text-base font-bold text-slate-800">古茶林晨曦雲海、大平掌與糯干水寨</h3>
+          <p class="text-xs text-slate-500 mt-0.5"><i class="fa-solid fa-location-dot text-teal-600 mr-1"></i>普洱瀾滄 景邁山 ｜ 步調：晨賞雲海，高架木棧道，山野原味</p>
+        </div>
+        <span class="text-xs bg-amber-500 text-white font-bold px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+          <i class="fa-solid fa-landmark"></i> UNESCO
+        </span>
+      </div>
+
+      <div class="space-y-3 relative pl-2">
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>07:30 – 08:30</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">芒洪觀景台眺望景邁山晨曦萬頃雲海</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">停留 1 小時</span>
+          </div>
+          <div class="flex items-center gap-2 mt-1.5">
+            <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded"><i class="fa-solid fa-stairs mr-1"></i>平緩木觀景台約 30 階</span>
+            <span class="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded">冬季壯闊逆溫層雲海</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">冬季南朗河谷冷凝水氣形成無邊雪白雲海，翻湧於千年茶山之間，壯麗非凡（需著輕羽絨衣防寒）。</p>
+          <div class="mt-2.5 rounded-xl overflow-hidden border border-slate-100">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=700&auto=format&fit=crop&q=80" alt="景邁山雲海日出" class="w-full h-36 object-cover" onerror="this.src='https://placehold.co/700x300/083c37/ffffff?text=Sea+of+Clouds'">
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?q=Manghong+Viewpoint+Jingmai+Mountain+Puer" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <a href="https://images.unsplash.com/photo-1506744038136-46273834b3fb" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>09:30 – 12:00</span>
+                <span class="bg-amber-100 text-amber-900 border border-amber-300 text-[10px] px-2 py-0.5 rounded-md font-bold">🏛️ UNESCO 世界遺產</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">大平掌萬畝古茶林木棧道漫步</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">停留 2.5 小時</span>
+          </div>
+          <div class="flex items-center gap-2 mt-1.5">
+            <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded"><i class="fa-solid fa-stairs mr-1"></i>高架防腐木棧道，累計 50–80 階</span>
+            <span class="text-[10px] bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded">林下茶生態典範</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">千百年來布朗與傣族先民在森林中依循「林下茶種植」保留高大常綠喬木，與古茶樹共生。木棧道平緩，林間負氧離子極高。</p>
+          <div class="mt-2.5 rounded-xl overflow-hidden border border-slate-100">
+            <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=700&auto=format&fit=crop&q=80" alt="大平掌萬畝古茶林" class="w-full h-36 object-cover" onerror="this.src='https://placehold.co/700x300/0d5c55/ffffff?text=Dapingzhang+Tea+Forest'">
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?q=Dapingzhang+Ancient+Tea+Forest+Jingmai" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <a href="https://images.unsplash.com/photo-1448375240586-882707db888b" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <!-- Lunch -->
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md"><i class="fa-solid fa-utensils mr-1"></i>12:30 – 13:30 午餐</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">山野原味農家菜館</h4>
+            </div>
+            <span class="text-[10px] bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded-full border border-emerald-200">🍲 原汁甘甜無辣</span>
+          </div>
+          <div class="bg-emerald-50 text-emerald-800 text-[11px] p-2 rounded-lg mt-2 font-medium">
+            招牌菜色：芭蕉葉蒸土豬肉、高山野菜清湯、茶油蒸走地土雞（完全無辣，品嚐原產地鮮美）。
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?q=Jingmai+Local+Farm+Restaurant+Lancang" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <a href="https://images.unsplash.com/photo-1544025162-d76694265947" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <!-- Nuogan Village -->
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>14:30 – 17:00</span>
+                <span class="bg-amber-100 text-amber-900 border border-amber-300 text-[10px] px-2 py-0.5 rounded-md font-bold">🏛️ UNESCO 世界遺產</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">探尋糯干傣族水寨</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">停留 2.5 小時</span>
+          </div>
+          <div class="flex items-center gap-2 mt-1.5">
+            <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded"><i class="fa-solid fa-stairs mr-1"></i>村內平石板路約 50 階</span>
+            <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">半山觀景台約 180 階 (可選)</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">隱匿於茶山山谷中的傣族古水寨，保留完好的黑瓦雙層木樓，清澈溪流自寨內蜿蜒流過，質樸而寧靜。</p>
+          <div class="mt-2.5 rounded-xl overflow-hidden border border-slate-100">
+            <img src="https://images.unsplash.com/photo-1528164344705-475426879c0d?w=700&auto=format&fit=crop&q=80" alt="糯干傣族水寨" class="w-full h-36 object-cover" onerror="this.src='https://placehold.co/700x300/083c37/ffffff?text=Nuogan+Dai+Village'">
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?q=Nuogan+Dai+Village+Jingmai" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <a href="https://images.unsplash.com/photo-1528164344705-475426879c0d" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <!-- Dinner -->
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md"><i class="fa-solid fa-utensils mr-1"></i>18:30 – 20:00 晚餐</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">珍稀螃蟹腳清燉土雞養生湯</h4>
+            </div>
+            <span class="text-[10px] bg-amber-50 text-amber-700 font-bold px-2 py-0.5 rounded-full border border-amber-200">🍲 茶山珍品名湯</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2">古茶樹寄生植物「螃蟹腳」慢火熬燉土雞，湯頭清甜回甘帶著獨特清淡梅香，暖胃潤燥。</p>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=1618099884555584004" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 餐廳導航</a>
+            <a href="https://images.unsplash.com/photo-1540555700478-4be289fbecef" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-100 p-3 rounded-xl text-xs space-y-1.5 border border-slate-200 text-slate-700">
+        <div class="flex justify-between font-bold text-slate-800">
+          <span>今日交通結算 (2人)</span>
+          <span class="text-amber-800">各寨車程約 1 小時 50 分 ｜ 包車合約包含</span>
+        </div>
+        <div class="text-[11px] text-slate-500">隨車隨停，清晨即時掌握雲海最佳時機，免受定點接駁班車時程綁定。</div>
+      </div>
+    </div>
+
+    <div id="view-day6" class="day-view space-y-3 hidden">
+      <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-bold text-teal-800 tracking-wider">DAY 6 ‧ 12月31日 週三</span>
+          <h3 class="text-base font-bold text-slate-800">揮別茶山返回告莊｜跨年水燈與煙火狂歡夜</h3>
+          <p class="text-xs text-slate-500 mt-0.5"><i class="fa-solid fa-location-dot text-teal-600 mr-1"></i>西雙版納 告莊西雙景 ｜ 步調：午後避開交管，步行參與午夜倒數</p>
+        </div>
+        <span class="text-xs bg-red-600 text-white font-bold px-2 py-1 rounded-full shadow-sm flex items-center gap-1">
+          <i class="fa-solid fa-fire"></i> 跨年盛典
+        </span>
+      </div>
+
+      <div class="space-y-3 relative pl-2">
+        <div class="bg-amber-50/70 border border-amber-200/60 p-2.5 rounded-xl text-xs flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-car-side text-amber-600"></i>
+            <div>
+              <span class="font-bold text-amber-900">景邁山 ➔ 告莊酒店（上午提早出發）</span>
+              <span class="text-slate-500 text-[11px]">（135km ｜ 車程約 2.5 小時）</span>
+            </div>
+          </div>
+          <span class="font-bold text-amber-800 bg-amber-100/70 px-2 py-0.5 rounded">包車約 ¥700</span>
+        </div>
+
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>14:00 – 17:00</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">入住告莊酒店 ＆ 客房靜養補眠</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">休息 3 小時</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">在傍晚 18:00 交警封閉周邊車流前抵達酒店。於隔音客房充分補眠，為即將到來的午夜萬人倒數儲備體力。</p>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=5366183507770079842" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <span class="text-[11px] text-amber-700 font-medium">避開傍晚大塞車</span>
+          </div>
+        </div>
+
+        <!-- NYE Dinner -->
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md"><i class="fa-solid fa-utensils mr-1"></i>18:00 – 19:30 晚餐</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">告莊臨江景觀私房宴</h4>
+            </div>
+            <span class="text-[10px] bg-red-50 text-red-700 font-bold px-2 py-0.5 rounded-full border border-red-200">🐟 臨江跨年私房盛宴</span>
+          </div>
+          <div class="bg-emerald-50 text-emerald-800 text-[11px] p-2 rounded-lg mt-2 font-medium">
+            跨年原味江鮮：清蒸湄公河野生羅非魚（蔥薑清蒸免辣）、椰香紫米飯、原汁手撕熟土雞。
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=4914279054532427877" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 餐廳導航</a>
+            <a href="https://images.unsplash.com/photo-1544025162-d76694265947" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>20:00 – 22:00</span>
+                <span class="bg-red-50 text-red-700 border border-red-300 text-[10px] px-2 py-0.5 rounded-md font-bold">🎆 跨年盛典</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">六國盛裝巡遊 ＆ 瀾滄江畔放生水燈</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">停留 2 小時</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">帕雅真舞台周邊欣賞東南亞六國盛裝快閃，漫步至江邊祈福放生水域，手捧芭蕉葉水燈漂流入江，祈願新年吉祥安康。</p>
+          <div class="mt-2.5 rounded-xl overflow-hidden border border-slate-100">
+            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=700&auto=format&fit=crop&q=80" alt="放生水燈盛況" class="w-full h-36 object-cover" onerror="this.src='https://placehold.co/700x300/c59b27/ffffff?text=Water+Lantern+Gala'">
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=4914279054532427877" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <a href="https://images.unsplash.com/photo-1517457373958-b7bdd4587205" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <!-- Midnight Fireworks -->
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100 border-l-4 border-l-amber-500">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>23:30 – 00:15</span>
+                <span class="bg-amber-100 text-amber-900 border border-amber-300 text-[10px] px-2 py-0.5 rounded-md font-bold">🎆 午夜倒數</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">景洪大金塔午夜倒數 ＆ 實體璀璨煙火秀</h4>
+            </div>
+            <span class="text-[11px] text-amber-700 font-bold">迎接 2026</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">午夜零點整於大金塔後方夜空施放官方核准之實體煙花，萬人齊聲歡呼倒數！散場後悠閒步行 5 分鐘即可回到飯店，完全免受塞車之苦。</p>
+          <div class="mt-2.5 rounded-xl overflow-hidden border border-slate-100">
+            <img src="https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?w=700&auto=format&fit=crop&q=80" alt="午夜煙火秀" class="w-full h-36 object-cover" onerror="this.src='https://placehold.co/700x300/083c37/ffffff?text=Midnight+Fireworks'">
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=1574304758515874331" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <span class="text-[11px] text-emerald-600 font-bold">步行 5 分鐘回房</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-100 p-3 rounded-xl text-xs space-y-1.5 border border-slate-200 text-slate-700">
+        <div class="flex justify-between font-bold text-slate-800">
+          <span>今日交通結算 (2人)</span>
+          <span class="text-amber-800">車程約 2.5 小時 ｜ 包車 ¥700</span>
+        </div>
+        <div class="text-[11px] text-red-600 font-medium">⚠️ 跨年夜交管提醒：告莊外部車輛全面管制，當日活動全程步行（5–10分鐘內），建議 23:00 前進場佔據開闊視野。</div>
+      </div>
+    </div>
+
+    <div id="view-day7" class="day-view space-y-3 hidden">
+      <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-bold text-teal-800 tracking-wider">DAY 7 ‧ 01月01日 週四</span>
+          <h3 class="text-base font-bold text-slate-800">元旦長街宴盛典｜在地市井生活體驗</h3>
+          <p class="text-xs text-slate-500 mt-0.5"><i class="fa-solid fa-location-dot text-teal-600 mr-1"></i>景洪市區 ｜ 步調：睡到自然醒，百米長街宴，熱帶水果採買</p>
+        </div>
+        <span class="text-xs bg-amber-50 text-amber-700 font-semibold px-2 py-1 rounded-full border border-amber-200">元旦慶典</span>
+      </div>
+
+      <div class="space-y-3 relative pl-2">
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>10:00 – 11:30</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">元旦晨間慢步調 ＆ 舒活早午餐</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">悠閒享受</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2">跨年倒數後睡到自然醒，在酒店內悠閒享用熱帶鮮果、米線與現煮咖啡，平復高漲興奮情緒。</p>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <span class="text-slate-400">飯店餐廳內享用</span>
+            <span class="text-[11px] text-emerald-600 font-medium">平緩慢步調</span>
+          </div>
+        </div>
+
+        <!-- Long Street Banquet -->
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>12:00 – 13:30</span>
+                <span class="bg-amber-100 text-amber-800 border border-amber-300 text-[10px] px-2 py-0.5 rounded-md font-bold">🎟️ 需提前預約</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">告莊迎新元旦嘎湯帕長街宴</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">停留 1.5 小時</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">在湄公河人家廣場盛大入座專屬席位。伴隨少數民族敬酒歡歌，品嚐芭蕉葉蒸肉、五色糯米飯與清蒸江魚等全熟無辣風味拼盤。</p>
+          <div class="mt-2.5 rounded-xl overflow-hidden border border-slate-100">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop&q=80" alt="元旦嘎湯帕長街宴" class="w-full h-36 object-cover" onerror="this.src='https://placehold.co/700x300/0d5c55/ffffff?text=Long+Street+Banquet'">
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=4914279054532427877" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <a href="https://images.unsplash.com/photo-1555396273-367ea4eb4db5" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <div class="bg-amber-50/70 border border-amber-200/60 p-2.5 rounded-xl text-xs flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-taxi text-amber-600"></i>
+            <div>
+              <span class="font-bold text-amber-900">告莊 ⇄ 曼閣水果市場（往返叫車）</span>
+              <span class="text-slate-500 text-[11px]">（往返 8km ｜ 車程 20 分鐘）</span>
+            </div>
+          </div>
+          <span class="font-bold text-amber-800 bg-amber-100/70 px-2 py-0.5 rounded">約 ¥35</span>
+        </div>
+
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>15:00 – 17:00</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">景洪曼閣水果批發集散市場（在地居民日常）</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">停留 2 小時</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2">走進市區最具生活氣息之水果集散交易中心（非觀光購物站），產地平價挑選香甜釋迦、小菠蘿、甜角與人參果，享受舌尖甜蜜滋味。</p>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?q=Mange+Fruit+Wholesale+Market+Jinghong+Xishuangbanna" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <a href="https://images.unsplash.com/photo-1619566636858-adf3ef46400b" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <!-- Dinner -->
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md"><i class="fa-solid fa-utensils mr-1"></i>18:00 – 19:30 晚餐</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">景洪高端私房中餐廳（汽鍋松茸雞）</h4>
+            </div>
+            <span class="text-[10px] bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded-full border border-emerald-200">🍲 紫陶原汁無辣</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2">建水紫陶汽鍋松茸燉土雞、清燉鮮牛腩、清炒高山甜玉米筍。純蒸汽凝結原湯，鮮嫩滋養。</p>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?q=Steam+Pot+Chicken+Restaurant+Jinghong+Xishuangbanna" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 餐廳導航</a>
+            <a href="https://images.unsplash.com/photo-1547496502-affa22d38842" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-100 p-3 rounded-xl text-xs space-y-1.5 border border-slate-200 text-slate-700">
+        <div class="flex justify-between font-bold text-slate-800">
+          <span>今日交通結算 (2人)</span>
+          <span class="text-amber-800">車程約 35 分鐘 ｜ 約 ¥60</span>
+        </div>
+        <div class="text-[11px] text-slate-500">採買大箱水果後提著過街極吃力，定點叫車直達飯店門口最舒適。</div>
+      </div>
+    </div>
+
+    <div id="view-day8" class="day-view space-y-3 hidden">
+      <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-bold text-teal-800 tracking-wider">DAY 8 ‧ 01月02日 週五</span>
+          <h3 class="text-base font-bold text-slate-800">告莊晨間慢時光｜滿載回憶直飛深圳</h3>
+          <p class="text-xs text-slate-500 mt-0.5"><i class="fa-solid fa-location-dot text-teal-600 mr-1"></i>西雙版納 ⇄ 深圳 ｜ 步調：晨光漫步，手沖咖啡，專車直達機場</p>
+        </div>
+        <span class="text-xs bg-slate-100 text-slate-700 font-semibold px-2 py-1 rounded-full border border-slate-200">平安返程</span>
+      </div>
+
+      <div class="space-y-3 relative pl-2">
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>09:30 – 11:30</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">告莊親水步道散步 ＆ 日曬手沖小粒咖啡</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">停留 2 小時</span>
+          </div>
+          <div class="flex items-center gap-2 mt-1.5">
+            <span class="text-[10px] bg-amber-50 text-amber-800 px-2 py-0.5 rounded font-bold"><i class="fa-solid fa-mug-saucer mr-1"></i>☕ 雲南小粒咖啡</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">在褪去夜市喧囂的清晨漫步江邊，選一家臨江精品咖啡座，細品果香濃郁的雲南保山/普洱產區微批次日曬手沖咖啡。</p>
+          <div class="mt-2.5 rounded-xl overflow-hidden border border-slate-100">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=700&auto=format&fit=crop&q=80" alt="精品咖啡與晨光" class="w-full h-36 object-cover" onerror="this.src='https://placehold.co/700x300/c59b27/ffffff?text=Yunnan+Specialty+Coffee'">
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=5366183507770079842" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <a href="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <!-- Lunch -->
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md"><i class="fa-solid fa-utensils mr-1"></i>12:00 – 13:00 出發前簡餐</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">道地老字號過橋米線（原湯熟食）</h4>
+            </div>
+            <span class="text-[10px] bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded-full border border-emerald-200">🍜 熱烹原湯無辣</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2">滾燙鵝油雞湯現燙鮮熟里脊肉片、鵪鶉蛋與手工米線，純原湯鮮香溫潤，完全不辣。</p>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?q=Yunnan+Bridge+Rice+Noodles+Gaozhuang+Jinghong" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <a href="https://images.unsplash.com/photo-1569718212165-3a8278d5f624" target="_blank" class="text-slate-500">📷 實景照片</a>
+          </div>
+        </div>
+
+        <div class="timeline-item bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md"><i class="fa-regular fa-clock mr-1"></i>13:30 – 14:00</span>
+              <h4 class="text-sm font-bold text-slate-900 mt-1">專車送往嘎灑國際機場（JHG）直飛返深</h4>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">車程 30 分鐘</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">專車直達機場出發層，辦理托運手續，搭機直飛返回深圳寶安國際機場（SZX），結束充實愉悅的跨年奢旅。</p>
+          <div class="mt-2.5 rounded-xl overflow-hidden border border-slate-100">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=700&auto=format&fit=crop&q=80" alt="嘎灑機場航班返程" class="w-full h-36 object-cover" onerror="this.src='https://placehold.co/700x300/083c37/ffffff?text=Flight+Back+to+Shenzhen'">
+          </div>
+          <div class="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+            <a href="https://maps.google.com/?cid=3290469459374355420" target="_blank" class="text-teal-700 font-medium">📍 Google Maps 導航</a>
+            <span class="text-[11px] text-slate-400">專車送機約 ¥70 (10km)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-100 p-3 rounded-xl text-xs space-y-1.5 border border-slate-200 text-slate-700">
+        <div class="flex justify-between font-bold text-slate-800">
+          <span>今日交通結算 (2人)</span>
+          <span class="text-amber-800">車程約 20 分鐘 ｜ 送機 ¥70</span>
+        </div>
+        <div class="text-[11px] text-slate-500">元旦返程客流龐大，建議起飛前 2 小時抵達機場完成伴手禮打包托運。</div>
+      </div>
+    </div>
+
+    <div id="view-highlights" class="day-view space-y-4 hidden">
+      <div class="bg-gradient-to-br from-amber-600 via-amber-700 to-amber-900 text-white p-4 rounded-2xl shadow-sm">
+        <div class="flex items-center gap-2 mb-1">
+          <i class="fa-solid fa-star text-amber-300"></i>
+          <span class="text-xs text-amber-200 font-semibold uppercase tracking-wider">Trip Core Identity</span>
+        </div>
+        <h3 class="text-base font-bold">8天7夜 行程核心特色與設計原則</h3>
+        <p class="text-xs text-amber-100 mt-1">獨立收錄整體出行規範、體能與交通決策原則，確保每日行程純粹專注於動線體驗。</p>
+      </div>
+
+      <!-- Feature 1: Dining Rules -->
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center gap-2 mb-2 pb-2 border-b border-slate-100 text-brand-darkteal">
+          <i class="fa-solid fa-shield-halved text-amber-500 text-base"></i>
+          <h4 class="text-sm font-bold">餐飲規範：嚴格貫徹「三不原則」</h4>
+        </div>
+        <div class="space-y-2 text-xs text-slate-700">
+          <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/50">
+            <span class="font-bold text-amber-900">1. 完全不辣：</span>
+            <p class="text-slate-600 text-[11px] mt-0.5">點餐前均要求「免辣、不抹辣椒油、不附酸辣蘸水」，以草本香氣（香茅、檸檬葉、芭蕉葉）與原湯鮮甜為主。</p>
+          </div>
+          <div class="p-2.5 rounded-xl bg-red-50/70 border border-red-200/50">
+            <span class="font-bold text-red-900">2. 絕無生食：</span>
+            <p class="text-slate-600 text-[11px] mt-0.5">嚴格杜絕雲南在地生食，例如「剁生」（生肉碎拌香草）、生血撒撇、生醃江蝦等高風險菜色。</p>
+          </div>
+          <div class="p-2.5 rounded-xl bg-emerald-50/70 border border-emerald-200/50">
+            <span class="font-bold text-emerald-900">3. 熱烹熟食：</span>
+            <p class="text-slate-600 text-[11px] mt-0.5">主打香茅草清烤羅非魚、包燒野生菌菇、菠蘿紫米飯、瓦罐野生菌土雞湯、景邁古樹茶香排骨與茶葉炒蛋，安全暖胃。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2: Physical & Pace Control -->
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center gap-2 mb-2 pb-2 border-b border-slate-100 text-brand-darkteal">
+          <i class="fa-solid fa-person-walking text-emerald-600 text-base"></i>
+          <h4 class="text-sm font-bold">成員與體能把控（單點階梯 &lt; 1000 階）</h4>
+        </div>
+        <div class="text-xs text-slate-600 space-y-2 leading-relaxed">
+          <p>• <strong>成員配置：</strong>2 位成人奢旅，體力充沛，全程講求舒緩放鬆。</p>
+          <p>• <strong>階梯舒適度管控：</strong>植物園西區採全程電瓶車接駁（階梯 &lt; 80 階）；大金塔僅 40 階；曼聽公園後院設無障礙通道（基座 120 階）；景邁山大平掌為平緩高架木棧道（50–80 階）。</p>
+          <p>• <strong>堅決避坑：</strong>剔除東區熱帶雨林泥濘陡坡步道，拒絕特種兵式走馬看花。</p>
+        </div>
+      </div>
+
+      <!-- Feature 3: Transport & High-Speed Rail Comparison -->
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center gap-2 mb-2 pb-2 border-b border-slate-100 text-brand-darkteal">
+          <i class="fa-solid fa-car-side text-blue-600 text-base"></i>
+          <h4 class="text-sm font-bold">交通決策：專屬包車直達（避高鐵反向折返大坑）</h4>
+        </div>
+        <div class="text-xs text-slate-600 space-y-2 leading-relaxed">
+          <p>• <strong>直飛優勢：</strong>深圳寶安（SZX）⇄ 版納嘎灑（JHG）直飛往返，免除昆明中轉 4 小時波折。</p>
+          <p>• <strong>市區移動：</strong>滴滴／叫車隨叫隨到，單趟僅 ¥10–20，省時免受高溫暴曬。</p>
+          <p>• <strong>為什麼不搭高鐵去景邁山？</strong>景邁山位於普洱西南邊陲的瀾滄縣，若搭中老鐵路高鐵至普洱思茅站，出站後仍需轉乘 3.5 小時崎嶇盤山公路，反向折返耗時長達 6 小時；而直接從景洪包車沿「思瀾高速」直達僅需 2.5 小時，省下超過一半時間且行李免反覆搬運！</p>
+        </div>
+      </div>
+
+      <!-- Feature 4: UNESCO & NYE Gala -->
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center gap-2 mb-2 pb-2 border-b border-slate-100 text-brand-darkteal">
+          <i class="fa-solid fa-landmark text-amber-500 text-base"></i>
+          <h4 class="text-sm font-bold">雙重奢旅亮點：世界文化遺產 ＆ 跨年慶典</h4>
+        </div>
+        <div class="text-xs text-slate-600 space-y-2 leading-relaxed">
+          <p>• <strong>普洱景邁山古茶林文化景觀 (UNESCO)：</strong>造訪大平掌萬畝古茶林、千年翁基布朗族古寨、糯干傣族水寨，探訪千年「林下茶種植」共生智慧。</p>
+          <p>• <strong>跨年與元旦慶典：</strong>12/31 告莊西雙景六國盛裝巡遊、瀾滄江水燈祈福、景洪大金塔午夜倒數煙火秀；01/01 告莊湄公河人家迎新元旦嘎湯帕長街宴。</p>
+          <p>• <strong>住宿嚴選：</strong>下榻萬畝茶園景邁柏聯奢華酒店（地暖/雙循環暖氣+茶泉SPA）與告莊景區內五星度假酒店（避開夜市嘈雜）。</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="view-dining" class="day-view space-y-4 hidden">
+      <div class="bg-gradient-to-br from-rose-700 via-rose-800 to-amber-900 text-white p-4 rounded-2xl shadow-sm">
+        <div class="flex items-center gap-2 mb-1">
+          <i class="fa-solid fa-utensils text-rose-300"></i>
+          <span class="text-xs text-rose-200 font-semibold uppercase tracking-wider">Gastronomy Guide</span>
+        </div>
+        <h3 class="text-base font-bold">精選美食地圖與特色餐廳名錄</h3>
+        <p class="text-xs text-rose-100 mt-1">恪守「免辣、無生食、熱烹熟食」，兼顧米其林評級與在地風土原味。</p>
+      </div>
+
+      <div class="space-y-3">
+        <!-- Restaurant 1 -->
+        <div class="p-3.5 bg-white rounded-2xl shadow-sm border border-slate-100 text-xs">
+          <div class="flex justify-between items-start gap-1">
+            <h5 class="font-bold text-slate-900 text-sm">1. 喜來登酒店 ‧ 采悅軒中餐廳</h5>
+            <span class="bg-amber-100 text-amber-900 text-[10px] px-2 py-0.5 rounded font-bold">⭐ 米其林主廚水準</span>
+          </div>
+          <div class="text-[11px] text-slate-500 mt-0.5">景洪市區 ｜ Day 3 午餐 ｜ 米其林/高檔星級</div>
+          <p class="text-slate-600 text-[11px] mt-1.5 leading-relaxed">五星行政主廚操刀，精準演繹免辣傣香風味。招牌菜色：國宴香茅烤排骨（完全不辣）、香竹清蒸湄公河江魚、菠蘿紫米飯。</p>
+          <div class="mt-2.5 flex justify-between items-center pt-2 border-t border-slate-100">
+            <span class="text-emerald-700 font-medium text-[11px]">環境優雅 ‧ 衛生標準嚴格</span>
+            <a href="https://maps.google.com/?q=Sheraton+Grand+Xishuangbanna+Yue+Chinese+Restaurant" target="_blank" class="text-teal-700 font-bold hover:underline">📍 Google Maps</a>
+          </div>
+        </div>
+
+        <!-- Restaurant 2 -->
+        <div class="p-3.5 bg-white rounded-2xl shadow-sm border border-slate-100 text-xs">
+          <div class="flex justify-between items-start gap-1">
+            <h5 class="font-bold text-slate-900 text-sm">2. 景邁柏聯酒店 ‧ 茶園景觀中餐廳</h5>
+            <span class="bg-amber-100 text-amber-900 text-[10px] px-2 py-0.5 rounded font-bold">⭐ 奢華世遺茶宴</span>
+          </div>
+          <div class="text-[11px] text-slate-500 mt-0.5">普洱瀾滄 ｜ Day 4 & Day 5 晚餐 ｜ 星級養生茶宴</div>
+          <p class="text-slate-600 text-[11px] mt-1.5 leading-relaxed">以萬畝茶山古樹茶嫩芽入饌，滋味醇厚清淡。招牌推薦：古樹茶鮮葉炒走地雞蛋、普洱茶香秘製排骨、螃蟹腳清燉土雞湯。</p>
+          <div class="mt-2.5 flex justify-between items-center pt-2 border-t border-slate-100">
+            <span class="text-emerald-700 font-medium text-[11px]">有機茶園景觀 ‧ 清淡回甘</span>
+            <a href="https://maps.google.com/?cid=1618099884555584004" target="_blank" class="text-teal-700 font-bold hover:underline">📍 Google Maps</a>
+          </div>
+        </div>
+
+        <!-- Restaurant 3 -->
+        <div class="p-3.5 bg-white rounded-2xl shadow-sm border border-slate-100 text-xs">
+          <div class="flex justify-between items-start gap-1">
+            <h5 class="font-bold text-slate-900 text-sm">3. 曼霖軒傣味特色餐廳（告莊旗艦店）</h5>
+            <span class="bg-red-50 text-red-700 text-[10px] px-2 py-0.5 rounded font-bold">🐟 必比登推介級</span>
+          </div>
+          <div class="text-[11px] text-slate-500 mt-0.5">告莊西雙景 ｜ Day 1 晚餐 ｜ 在地口碑江魚</div>
+          <p class="text-slate-600 text-[11px] mt-1.5 leading-relaxed">景洪極高人氣的正宗傣味，全客製無辣菜單。招牌推薦：純蒜香茅草烤羅非魚（免辣）、原味包燒野生牛肝菌、手撕熟土雞。</p>
+          <div class="mt-2.5 flex justify-between items-center pt-2 border-t border-slate-100">
+            <span class="text-emerald-700 font-medium text-[11px]">客製無辣 ‧ 草本香氣濃郁</span>
+            <a href="https://maps.google.com/?q=Manlinxuan+Dai+Restaurant+Gaozhuang+Xishuangbanna" target="_blank" class="text-teal-700 font-bold hover:underline">📍 Google Maps</a>
+          </div>
+        </div>
+
+        <!-- Restaurant 4 -->
+        <div class="p-3.5 bg-white rounded-2xl shadow-sm border border-slate-100 text-xs">
+          <div class="flex justify-between items-start gap-1">
+            <h5 class="font-bold text-slate-900 text-sm">4. 七彩雲南野生菌松茸土雞火鍋</h5>
+            <span class="bg-amber-50 text-amber-700 text-[10px] px-2 py-0.5 rounded font-bold">🍲 滋補名店</span>
+          </div>
+          <div class="text-[11px] text-slate-500 mt-0.5">景洪市區 ｜ Day 2 晚餐 ｜ 原汁無辣菌湯</div>
+          <p class="text-slate-600 text-[11px] mt-1.5 leading-relaxed">文火慢熬 20 分鐘的原汁野生菌土雞金湯，嚴選松茸、牛肝菌與竹蓀，暖身護胃。招牌推薦：松茸野生菌原湯煲、鮮燉走地土雞、手工菌湯麵。</p>
+          <div class="mt-2.5 flex justify-between items-center pt-2 border-t border-slate-100">
+            <span class="text-emerald-700 font-medium text-[11px]">慢熬金湯 ‧ 滋養鮮甜</span>
+            <a href="https://maps.google.com/?q=Wild+Mushroom+Chicken+Hotpot+Jinghong+Xishuangbanna" target="_blank" class="text-teal-700 font-bold hover:underline">📍 Google Maps</a>
+          </div>
+        </div>
+
+        <!-- Restaurant 5 -->
+        <div class="p-3.5 bg-white rounded-2xl shadow-sm border border-slate-100 text-xs">
+          <div class="flex justify-between items-start gap-1">
+            <h5 class="font-bold text-slate-900 text-sm">5. 翁基古寨布朗族火塘茶家</h5>
+            <span class="bg-emerald-50 text-emerald-800 text-[10px] px-2 py-0.5 rounded font-bold">🍵 世遺村寨慢時光</span>
+          </div>
+          <div class="text-[11px] text-slate-500 mt-0.5">景邁山翁基古寨 ｜ Day 4 下午 ｜ 傳統火塘茶室</div>
+          <p class="text-slate-600 text-[11px] mt-1.5 leading-relaxed">走進布朗族老茶農木樓，坐在火塘邊品飲柴火烘烤古樹普洱。招牌推薦：柴火烤小土豆、古法炭烤古樹生茶、茶葉煎土雞蛋。</p>
+          <div class="mt-2.5 flex justify-between items-center pt-2 border-t border-slate-100">
+            <span class="text-emerald-700 font-medium text-[11px]">圍坐火塘 ‧ 純樸日常</span>
+            <a href="https://maps.google.com/?cid=14348280438304033655" target="_blank" class="text-teal-700 font-bold hover:underline">📍 Google Maps</a>
+          </div>
+        </div>
+
+        <!-- Restaurant 6 -->
+        <div class="p-3.5 bg-white rounded-2xl shadow-sm border border-slate-100 text-xs">
+          <div class="flex justify-between items-start gap-1">
+            <h5 class="font-bold text-slate-900 text-sm">6. 告莊臨江景觀私房宴</h5>
+            <span class="bg-red-50 text-red-700 text-[10px] px-2 py-0.5 rounded font-bold">🐟 臨江跨年私房盛宴</span>
+          </div>
+          <div class="text-[11px] text-slate-500 mt-0.5">告莊西雙景 ｜ Day 6 跨年晚餐 ｜ 清蒸江鮮</div>
+          <p class="text-slate-600 text-[11px] mt-1.5 leading-relaxed">坐擁瀾滄江落日與夜色，主打不辣之清蒸湄公河江鮮，避開夜市嘈雜。招牌推薦：清蒸野生羅非魚、椰香芒果糯米飯、原汁手撕雞。</p>
+          <div class="mt-2.5 flex justify-between items-center pt-2 border-t border-slate-100">
+            <span class="text-emerald-700 font-medium text-[11px]">臨江夜景 ‧ 避開夜市嘈雜</span>
+            <a href="https://maps.google.com/?cid=4914279054532427877" target="_blank" class="text-teal-700 font-bold hover:underline">📍 Google Maps</a>
+          </div>
+        </div>
+
+        <!-- Restaurant 7 -->
+        <div class="p-3.5 bg-white rounded-2xl shadow-sm border border-slate-100 text-xs">
+          <div class="flex justify-between items-start gap-1">
+            <h5 class="font-bold text-slate-900 text-sm">7. 告莊瀾滄江畔日曬精品咖啡屋</h5>
+            <span class="bg-amber-100 text-amber-900 text-[10px] px-2 py-0.5 rounded font-bold">☕ 雲南精品小粒咖啡</span>
+          </div>
+          <div class="text-[11px] text-slate-500 mt-0.5">告莊西雙景 ｜ Day 8 早晨 ｜ 微批次日曬手沖</div>
+          <p class="text-slate-600 text-[11px] mt-1.5 leading-relaxed">精選普洱與保山高海拔產區之微批次日曬豆，手沖酸甜平衡，果香馥郁迷人。招牌推薦：日曬小粒手沖黑咖啡、熱帶椰乳拿鐵、香竹烤年糕。</p>
+          <div class="mt-2.5 flex justify-between items-center pt-2 border-t border-slate-100">
+            <span class="text-emerald-700 font-medium text-[11px]">果香馥郁 ‧ 酸甜平衡</span>
+            <a href="https://maps.google.com/?cid=5366183507770079842" target="_blank" class="text-teal-700 font-bold hover:underline">📍 Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="view-checklist" class="day-view space-y-4 hidden">
+      <div class="bg-gradient-to-r from-emerald-800 to-teal-900 text-white p-4 rounded-2xl shadow-sm">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="text-xs text-emerald-200 font-semibold uppercase tracking-wider">Preparation & Booking</span>
+            <h3 class="text-base font-bold">行前打包與預約檢查清單</h3>
+          </div>
+          <div class="text-right">
+            <span id="checklistProgressText" class="text-sm font-bold text-amber-300">0%</span>
+            <div class="text-[10px] text-emerald-200">完成進度</div>
+          </div>
+        </div>
+        <div class="w-full bg-emerald-950/60 rounded-full h-2 mt-2.5 overflow-hidden border border-emerald-700/40">
+          <div id="checklistProgressBar" class="bg-amber-400 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Section A: Activities & Reservation Approvals -->
+      <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
+          <i class="fa-solid fa-calendar-check text-emerald-600"></i>
+          <h4 class="text-sm font-bold text-slate-900">核心活動與景點預約審批</h4>
+        </div>
+        <div class="space-y-2.5 text-xs">
+          <label class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 cursor-pointer transition">
+            <input type="checkbox" data-id="c1" class="checklist-item mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+            <div>
+              <div class="font-bold text-slate-800">【景邁山報備】出發前 1～2 天完成審批</div>
+              <div class="text-slate-500 text-[11px] mt-0.5">由包車司機於微信「景邁山預約服務」小程序填報車牌與乘客身分核准。</div>
+            </div>
+          </label>
+          <label class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 cursor-pointer transition">
+            <input type="checkbox" data-id="c2" class="checklist-item mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+            <div>
+              <div class="font-bold text-slate-800">【元旦長街宴】節前 3～5 天鎖定席位</div>
+              <div class="text-slate-500 text-[11px] mt-0.5">透過「告莊西雙景」公眾號或電話（+86 0691-2221600）購票鎖定 1/1 專屬席位。</div>
+            </div>
+          </label>
+          <label class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 cursor-pointer transition">
+            <input type="checkbox" data-id="c3" class="checklist-item mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+            <div>
+              <div class="font-bold text-slate-800">【融創新傣秀】提前 5 天預訂核心席位</div>
+              <div class="text-slate-500 text-[11px] mt-0.5">預訂 12/28 晚間 19:45 孔雀公主大劇院觀演中後排座位。</div>
+            </div>
+          </label>
+          <label class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 cursor-pointer transition">
+            <input type="checkbox" data-id="c4" class="checklist-item mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+            <div>
+              <div class="font-bold text-slate-800">【中科院植物園】提前購買門票 ＋ 電瓶車聯票</div>
+              <div class="text-slate-500 text-[11px] mt-0.5">購買西門門票（¥80）＋ 西區電瓶觀光車（¥50），切勿走東區徒步道避免階梯超量。</div>
+            </div>
+          </label>
+          <label class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 cursor-pointer transition">
+            <input type="checkbox" data-id="c5" class="checklist-item mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+            <div>
+              <div class="font-bold text-slate-800">【告莊飯店確認】跨年夜接送安排</div>
+              <div class="text-slate-500 text-[11px] mt-0.5">致電確認跨年車管接送安排，備註「背向星光夜市之高樓層靜音客房」。</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Section B: Packing Gear Checklist -->
+      <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
+          <i class="fa-solid fa-suitcase-rolling text-teal-600"></i>
+          <h4 class="text-sm font-bold text-slate-900">隨身裝備與氣候穿著打包</h4>
+        </div>
+        <div class="space-y-2.5 text-xs">
+          <label class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 cursor-pointer transition">
+            <input type="checkbox" data-id="c6" class="checklist-item mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+            <div>
+              <div class="font-bold text-slate-800">【保暖輕羽絨衣 / 防風外套】</div>
+              <div class="text-slate-500 text-[11px] mt-0.5">景邁山海拔 1,400 公尺，清晨看雲海與夜間僅 8℃～12℃，日夜溫差高達 12℃。</div>
+            </div>
+          </label>
+          <label class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 cursor-pointer transition">
+            <input type="checkbox" data-id="c7" class="checklist-item mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+            <div>
+              <div class="font-bold text-slate-800">【抓地防滑平底健走鞋】</div>
+              <div class="text-slate-500 text-[11px] mt-0.5">古茶林懸空木棧道與村寨青石板晨露微濕，防滑必備、全程保護膝蓋。</div>
+            </div>
+          </label>
+          <label class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 cursor-pointer transition">
+            <input type="checkbox" data-id="c8" class="checklist-item mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+            <div>
+              <div class="font-bold text-slate-800">【草本防蚊液 ＆ 止癢膏】</div>
+              <div class="text-slate-500 text-[11px] mt-0.5">熱帶植物園與千年古茶林植被茂密，隨身防護蚊蟲叮咬。</div>
+            </div>
+          </label>
+          <label class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 cursor-pointer transition">
+            <input type="checkbox" data-id="c9" class="checklist-item mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+            <div>
+              <div class="font-bold text-slate-800">【高倍數防曬 ＆ 保濕護唇膏】</div>
+              <div class="text-slate-500 text-[11px] mt-0.5">墨鏡、寬沿遮陽帽、高係數防曬乳（西南冬季陽光充足且氣候乾燥）。</div>
+            </div>
+          </label>
+          <label class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 cursor-pointer transition">
+            <input type="checkbox" data-id="c10" class="checklist-item mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+            <div>
+              <div class="font-bold text-slate-800">【大容量行動電源 ＆ 記憶卡】</div>
+              <div class="text-slate-500 text-[11px] mt-0.5">跨年夜大金塔外場攝影與茶山全天拍照錄影電力備援。</div>
+            </div>
+          </label>
+          <label class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 cursor-pointer transition">
+            <input type="checkbox" data-id="c11" class="checklist-item mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+            <div>
+              <div class="font-bold text-slate-800">【證件正本與行動支付】</div>
+              <div class="text-slate-500 text-[11px] mt-0.5">台胞證/身分證件正本、微信支付/支付寶綁定確認。</div>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div id="view-analytics" class="day-view space-y-4 hidden">
+      <div class="bg-gradient-to-r from-indigo-900 to-slate-900 text-white p-4 rounded-2xl shadow-sm">
+        <span class="text-xs text-indigo-300 font-semibold uppercase tracking-wider">Data Insights & Decisions</span>
+        <h3 class="text-base font-bold">交通效率比價與預算組成分析</h3>
+        <p class="text-xs text-indigo-200 mt-1">基於 2 位成人 8 天 7 夜高品質自由行標準核算</p>
+      </div>
+
+      <!-- Chart 1: Time Comparison Bar Chart -->
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-hourglass-half text-amber-500"></i>
+            <h4 class="text-sm font-bold text-slate-800">跨區交通耗時對比 (小時)</h4>
+          </div>
+          <span class="text-[10px] text-slate-400">專車包車 vs 大眾高鐵</span>
+        </div>
+        <p class="text-xs text-slate-500 mb-3">普洱景邁山包車直達單程僅 2.5 小時，避開高鐵思茅站反向折返耗時 6 小時之巨坑！</p>
+        <div class="h-56">
+          <canvas id="trafficTimeChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Chart 2: Budget Breakdown Doughnut Chart -->
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-wallet text-teal-600"></i>
+            <h4 class="text-sm font-bold text-slate-800">雙人總預算組成比例 (預估約 ¥24,000)</h4>
+          </div>
+          <span class="text-[10px] bg-teal-50 text-teal-700 px-2 py-0.5 rounded font-bold">雙人合計</span>
+        </div>
+        <p class="text-xs text-slate-500 mb-3">住宿（含柏聯奢華酒店）與機票為主要支出，包車交通兼具舒適與高性價比。</p>
+        <div class="h-60 relative flex items-center justify-center">
+          <canvas id="budgetChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Comparison Details Table -->
+      <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+        <h4 class="text-xs font-bold text-slate-800 mb-2 flex items-center gap-1.5">
+          <i class="fa-solid fa-table-list text-indigo-600"></i> 主要跨區交通模式與成本效益表
+        </h4>
+        <div class="overflow-x-auto text-xs">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-50 text-slate-600 border-b border-slate-200">
+                <th class="p-2 font-bold">區間</th>
+                <th class="p-2 font-bold">包車/叫車方案</th>
+                <th class="p-2 font-bold">大眾運輸方案</th>
+                <th class="p-2 font-bold">效益決策</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-[11px] text-slate-700">
+              <tr>
+                <td class="p-2 font-bold text-slate-900">景洪 ⇄ 植物園【往返】</td>
+                <td class="p-2 text-teal-700">往返約 2 hr<br><span class="font-bold">¥380/日</span></td>
+                <td class="p-2 text-slate-500">往返約 4 hr<br>¥100 (2人)</td>
+                <td class="p-2 text-amber-800 font-medium">推薦包車。園區偏遠極難叫車，省去客運站折返2小時。</td>
+              </tr>
+              <tr>
+                <td class="p-2 font-bold text-slate-900">景洪 ⇄ 景邁山【往返3天】</td>
+                <td class="p-2 text-teal-700">單程約 2.5 hr<br><span class="font-bold">約 ¥1,400</span></td>
+                <td class="p-2 text-slate-500">單程約 6 hr<br>約 ¥1,500 (含車)</td>
+                <td class="p-2 text-amber-800 font-bold">強烈包車。高鐵需反向折返，大眾轉乘耗時6小時且費用相當。</td>
+              </tr>
+              <tr>
+                <td class="p-2 font-bold text-slate-900">景洪市區景點間【單程】</td>
+                <td class="p-2 text-teal-700">單程 10–15 min<br><span class="font-bold">約 ¥15–20</span></td>
+                <td class="p-2 text-slate-500">單程 40–50 min<br>約 ¥4 (2人)</td>
+                <td class="p-2 text-amber-800 font-medium">推薦叫車。親民省時，免在正午豔陽下步行等候。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Budget Table -->
+      <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-100">
+        <h4 class="text-xs font-bold text-slate-800 mb-2 flex items-center gap-1.5">
+          <i class="fa-solid fa-receipt text-indigo-600"></i> 雙人 8天7夜 總預算明細表
+        </h4>
+        <div class="space-y-2 text-xs">
+          <div class="flex justify-between items-center py-1.5 border-b border-slate-100">
+            <span class="text-slate-600">機票：深圳 ⇄ 版納直飛往返 (2人)</span>
+            <span class="font-bold text-slate-800">¥ 4,800 – 6,500</span>
+          </div>
+          <div class="flex justify-between items-center py-1.5 border-b border-slate-100">
+            <span class="text-slate-600">住宿：告莊五星 5 晚 ＋ 景邁柏聯 2 晚</span>
+            <span class="font-bold text-slate-800">¥ 7,500 – 13,000</span>
+          </div>
+          <div class="flex justify-between items-center py-1.5 border-b border-slate-100">
+            <span class="text-slate-600">交通：市內叫車 ＋ 植物園 ＋ 景邁山專屬包車</span>
+            <span class="font-bold text-slate-800">¥ 1,800 – 2,300</span>
+          </div>
+          <div class="flex justify-between items-center py-1.5 border-b border-slate-100">
+            <span class="text-slate-600">門票演藝：植物園聯票、新傣秀、元旦長街宴</span>
+            <span class="font-bold text-slate-800">¥ 1,200 – 1,600</span>
+          </div>
+          <div class="flex justify-between items-center py-1.5 border-b border-slate-100">
+            <span class="text-slate-600">餐飲美食：野生菌煲、柏聯茶宴、精緻傣味</span>
+            <span class="font-bold text-slate-800">¥ 3,200 – 4,500</span>
+          </div>
+          <div class="flex justify-between items-center py-1.5 border-b border-slate-100">
+            <span class="text-slate-600">雜支保險：保險、熱帶水果、普洱茶品茗、水燈</span>
+            <span class="font-bold text-slate-800">¥ 1,000 – 1,500</span>
+          </div>
+          <div class="flex justify-between items-center pt-2 font-bold text-sm text-teal-900 bg-teal-50/70 p-2 rounded-xl">
+            <span>雙人高品質總預算合計</span>
+            <span class="text-amber-800">約 ¥ 19,500 – 29,400</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 py-2 shadow-lg">
+    <div class="max-w-md mx-auto px-4 flex items-center justify-between text-xs">
+      <button onclick="switchView('day1')" class="flex flex-col items-center text-teal-800 active:scale-95 transition">
+        <i class="fa-solid fa-calendar-day text-base"></i>
+        <span class="text-[10px] font-medium mt-0.5">每日行程</span>
+      </button>
+      <button onclick="switchView('highlights')" class="flex flex-col items-center text-slate-500 hover:text-amber-700 active:scale-95 transition">
+        <i class="fa-solid fa-star text-base"></i>
+        <span class="text-[10px] font-medium mt-0.5">行程特色</span>
+      </button>
+      <button onclick="switchView('dining')" class="flex flex-col items-center text-slate-500 hover:text-rose-700 active:scale-95 transition">
+        <i class="fa-solid fa-utensils text-base"></i>
+        <span class="text-[10px] font-medium mt-0.5">在地美食</span>
+      </button>
+      <button onclick="switchView('checklist')" class="flex flex-col items-center text-slate-500 hover:text-emerald-700 active:scale-95 transition">
+        <i class="fa-solid fa-list-check text-base"></i>
+        <span class="text-[10px] font-medium mt-0.5">打包清單</span>
+      </button>
+      <button onclick="switchView('analytics')" class="flex flex-col items-center text-slate-500 hover:text-indigo-700 active:scale-95 transition">
+        <i class="fa-solid fa-chart-column text-base"></i>
+        <span class="text-[10px] font-medium mt-0.5">預算分析</span>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Quick Info Modal -->
+  <div id="quickModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4 transition-opacity">
+    <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-2xl p-5 shadow-2xl space-y-4 max-h-[85vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+        <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+          <i class="fa-solid fa-circle-info text-teal-600"></i> 生活機能與緊急備案指南
+        </h4>
+        <button onclick="toggleQuickMenu()" class="text-slate-400 hover:text-slate-700 p-1">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div>
+          <h5 class="font-bold text-slate-800 mb-1">🛒 告莊周邊生活機能：</h5>
+          <div class="flex gap-2">
+            <a href="https://maps.google.com/?q=supermarket+near+Gaozhuang+Xishuangbanna" target="_blank" class="flex-1 text-center bg-slate-100 hover:bg-slate-200 p-2 rounded-xl text-teal-800 font-medium">
+              <i class="fa-solid fa-cart-shopping mr-1"></i>搜尋附近超市
+            </a>
+            <a href="https://maps.google.com/?q=laundry+service+near+Gaozhuang+Xishuangbanna" target="_blank" class="flex-1 text-center bg-slate-100 hover:bg-slate-200 p-2 rounded-xl text-teal-800 font-medium">
+              <i class="fa-solid fa-shirt mr-1"></i>搜尋周邊洗衣店
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-amber-900">
+          <div class="font-bold mb-1 flex items-center gap-1.5">
+            <i class="fa-solid fa-cloud-rain text-amber-600"></i> 雨天／體力彈性備案
+          </div>
+          <ul class="list-disc list-inside space-y-1 text-[11px] text-amber-800">
+            <li><strong>植物園遇雨：</strong>轉往園內「熱帶雨林民族文化博物館」，全室內常設展。</li>
+            <li><strong>曼聽公園遇雨：</strong>改往「西雙版納州民族博物館」，深度欣賞民族工藝。</li>
+            <li><strong>景邁山起霧降雨：</strong>體驗柏聯古法普洱茶餅壓製，享受茶泉水療 SPA。</li>
+            <li><strong>跨年夜降雨：</strong>前往告莊高樓層臨江景觀茶吧參與室內倒數。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchView(tabKey) {
+      document.querySelectorAll('.day-view').forEach(view => {
+        view.classList.add('hidden');
+      });
+
+      const targetView = document.getElementById('view-' + tabKey);
+      if (targetView) {
+        targetView.classList.remove('hidden');
+      }
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        const currentTab = btn.getAttribute('data-tab');
+        if (currentTab === tabKey) {
+          btn.className = 'tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-amber-400 text-slate-900 shadow-sm transition';
+        } else {
+          if (currentTab === 'highlights') {
+            btn.className = 'tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-amber-600/90 text-white hover:bg-amber-500 border border-amber-300/40 transition flex items-center gap-1';
+          } else if (currentTab === 'dining') {
+            btn.className = 'tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-rose-700/80 text-white hover:bg-rose-600 border border-rose-400/40 transition flex items-center gap-1';
+          } else if (currentTab === 'checklist') {
+            btn.className = 'tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-emerald-700/80 text-white hover:bg-emerald-600 border border-emerald-400/40 transition flex items-center gap-1';
+          } else if (currentTab === 'analytics') {
+            btn.className = 'tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-indigo-800/80 text-white hover:bg-indigo-700 border border-indigo-400/40 transition flex items-center gap-1';
+          } else {
+            btn.className = 'tab-btn px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-teal-900/60 text-teal-100 hover:bg-teal-800 transition';
+          }
+        }
+      });
+
+      const activeTabBtn = document.querySelector(`.tab-btn[data-tab="${tabKey}"]`);
+      if (activeTabBtn) {
+        activeTabBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (tabKey === 'analytics') {
+        renderCharts();
+      }
+    }
+
+    function toggleQuickMenu() {
+      const modal = document.getElementById('quickModal');
+      modal.classList.toggle('hidden');
+    }
+
+    const CHECKLIST_STORAGE_KEY = 'banna_jingmai_checklist_v2_2026';
+
+    function initChecklist() {
+      const savedData = JSON.parse(localStorage.getItem(CHECKLIST_STORAGE_KEY) || '{}');
+      const checkboxes = document.querySelectorAll('.checklist-item');
+
+      checkboxes.forEach(cb => {
+        const id = cb.getAttribute('data-id');
+        if (savedData[id]) {
+          cb.checked = true;
+        }
+        cb.addEventListener('change', () => {
+          savedData[id] = cb.checked;
+          localStorage.setItem(CHECKLIST_STORAGE_KEY, JSON.stringify(savedData));
+          updateChecklistProgress();
+        });
+      });
+
+      updateChecklistProgress();
+    }
+
+    function updateChecklistProgress() {
+      const checkboxes = document.querySelectorAll('.checklist-item');
+      let total = checkboxes.length;
+      let checkedCount = 0;
+
+      checkboxes.forEach(cb => {
+        if (cb.checked) checkedCount++;
+      });
+
+      const percentage = total > 0 ? Math.round((checkedCount / total) * 100) : 0;
+      const textElem = document.getElementById('checklistProgressText');
+      const barElem = document.getElementById('checklistProgressBar');
+
+      if (textElem) textElem.textContent = `${percentage}% (${checkedCount}/${total})`;
+      if (barElem) barElem.style.width = `${percentage}%`;
+    }
+
+    let trafficChartInstance = null;
+    let budgetChartInstance = null;
+
+    function renderCharts() {
+      const trafficCtx = document.getElementById('trafficTimeChart');
+      if (trafficCtx && !trafficChartInstance) {
+        trafficChartInstance = new Chart(trafficCtx, {
+          type: 'bar',
+          data: {
+            labels: ['中科院植物園往返', '景邁山古茶林單程', '市區景點單趟'],
+            datasets: [
+              {
+                label: '專屬包車/叫車 (推薦)',
+                data: [2.0, 2.5, 0.25],
+                backgroundColor: '#0d5c55',
+                borderRadius: 6
+              },
+              {
+                label: '大眾運輸/高鐵轉乘',
+                data: [4.0, 6.0, 0.75],
+                backgroundColor: '#cbd5e1',
+                borderRadius: 6
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels: { boxWidth: 12, font: { size: 11 } }
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(context) {
+                    return ` ${context.dataset.label}: ${context.raw} 小時`;
+                  }
+                }
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: { display: true, text: '耗時 (小時)', font: { size: 10 } },
+                ticks: { stepSize: 1, font: { size: 10 } }
+              },
+              x: {
+                ticks: { font: { size: 10 } }
+              }
+            }
+          }
+        });
+      }
+
+      const budgetCtx = document.getElementById('budgetChart');
+      if (budgetCtx && !budgetChartInstance) {
+        budgetChartInstance = new Chart(budgetCtx, {
+          type: 'doughnut',
+          data: {
+            labels: ['高端住宿 (7晚)', '直飛機票 (雙人)', '精緻餐飲 (無辣)', '專屬包車交通', '門票演藝', '雜支保險'],
+            datasets: [{
+              data: [10250, 5650, 3850, 2050, 1400, 1250],
+              backgroundColor: [
+                '#0d5c55',
+                '#0284c7',
+                '#d97706',
+                '#10b981',
+                '#8b5cf6',
+                '#94a3b8'
+              ],
+              borderWidth: 2,
+              borderColor: '#ffffff'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'right',
+                labels: { boxWidth: 10, font: { size: 10 } }
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(context) {
+                    const value = context.raw;
+                    return ` ${context.label}: 約 ¥${value}`;
+                  }
+                }
+              }
+            },
+            cutout: '62%'
+          }
+        });
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initChecklist();
+    });
+  </script>
+</body>
+</html>
