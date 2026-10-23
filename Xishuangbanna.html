@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>西雙版納 ‧ 普洱景邁山 8天7夜 跨年深度奢旅手冊 (2026/12/26 - 2027/01/02)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+          },
+          colors: {
+            banna: {
+              50: '#F0F9F5',
+              100: '#DCF2E7',
+              500: '#15803D',
+              600: '#166534',
+              800: '#064E3B',
+              900: '#022C22',
+            },
+            gold: {
+              400: '#FACC15',
+              500: '#EAB308',
+              600: '#CA8A04',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .glass-card { background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); }
+    .smooth-scroll { -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
+    .badge-shadow { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); }
+  </style>
+</head>
+<body class="bg-stone-100 text-stone-800 font-sans antialiased min-h-screen flex flex-col selection:bg-emerald-100 selection:text-emerald-900 pb-28">
+
+  <!-- 頂部手機沉浸式狀態與首頁導覽列 -->
+  <header class="sticky top-0 z-40 bg-emerald-950 text-white shadow-md">
+    <div class="max-w-md mx-auto px-4 py-3 flex items-center justify-between">
+      <div>
+        <div class="text-[10px] tracking-widest uppercase font-semibold text-emerald-400">LUXURY ESCAPE • NEW YEAR 2026-2027</div>
+        <h1 class="text-base font-bold tracking-tight text-white flex items-center gap-1.5">
+          <span>西雙版納 ‧ 普洱景邁山</span>
+          <span class="text-xs font-normal px-2 py-0.5 rounded-full bg-emerald-800 text-emerald-200 border border-emerald-700/60">8天7夜</span>
+        </h1>
+      </div>
+      <div class="text-right">
+        <span class="text-[11px] text-emerald-300 block font-mono">2026/12/26 - 2027/01/02</span>
+        <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-medium border border-amber-400/30">2位成人 • 完全不辣</span>
+      </div>
+    </div>
+
+    <!-- 頂部日期橫移頁籤 (Day 1 ~ Day 8) -->
+    <div class="bg-emerald-900/90 border-t border-emerald-800/80 px-2 py-2">
+      <div id="dateTabContainer" class="flex items-center space-x-2 overflow-x-auto no-scrollbar py-0.5 px-1 smooth-scroll">
+        <!-- JS 動態生成 Day 1 ~ Day 8 按鈕 -->
+      </div>
+    </div>
+  </header>
+
+  <!-- 主畫面容器 -->
+  <main class="flex-1 w-full max-w-md mx-auto px-3.5 pt-3">
+
+    <!-- 分頁 1：每日行程檢視 (Itinerary View) -->
+    <section id="itineraryView" class="space-y-4">
+      <!-- 每日概覽卡片 -->
+      <div id="dayOverviewCard" class="glass-card rounded-2xl p-4 shadow-sm border border-stone-200/80">
+        <!-- JS 動態載入 -->
+      </div>
+
+      <!-- 核心時間軸 -->
+      <div class="relative">
+        <div class="absolute left-4 top-3 bottom-3 w-0.5 bg-emerald-200/80 -z-0"></div>
+        <div id="timelineEventsContainer" class="space-y-4 relative z-10">
+          <!-- JS 動態載入時間軸 -->
+        </div>
+      </div>
+
+      <!-- 當日交通方案與費用計算卡片 -->
+      <div id="dayTransportCard" class="glass-card rounded-2xl p-4 shadow-sm border border-stone-200/80">
+        <!-- JS 動態載入 -->
+      </div>
+
+      <!-- 住宿與生活機能 -->
+      <div id="dayStayCard" class="glass-card rounded-2xl p-4 shadow-sm border border-stone-200/80">
+        <!-- JS 動態載入 -->
+      </div>
+
+      <!-- 彈性備案與飲食提醒 -->
+      <div id="dayAlertsCard" class="glass-card rounded-2xl p-4 shadow-sm border border-stone-200/80 space-y-3">
+        <!-- JS 動態載入 -->
+      </div>
+    </section>
+
+    <!-- 分頁 2：餐廳指引與精選地圖 (Food Guide View) -->
+    <section id="foodView" class="hidden space-y-4 pt-1">
+      <!-- 餐廳挑選指引卡片 -->
+      <div class="glass-card rounded-2xl p-4 shadow-sm border border-stone-200/80 space-y-3">
+        <div class="flex items-center justify-between border-b border-stone-100 pb-2">
+          <h2 class="text-base font-bold text-stone-900 flex items-center gap-1.5">
+            <span>🍴</span>
+            <span>依照不同特色，怎麼選餐廳？</span>
+          </h2>
+          <span class="text-xs bg-amber-100 text-amber-900 px-2 py-0.5 rounded-full font-medium">全熟無辣原則</span>
+        </div>
+
+        <div class="space-y-2.5 text-xs text-stone-700 leading-relaxed">
+          <div class="p-2.5 rounded-xl bg-amber-50/80 border border-amber-200/70">
+            <span class="font-bold text-amber-950 block text-[13px] mb-1">🍗 想吃最有代表性的傣族料理</span>
+            <p><strong>首選：</strong>曼飛龍烤雞、紅牙象、波濤保傣家竹樓。</p>
+            <p class="mt-0.5 text-stone-600"><strong>必點：</strong>香茅草烤魚、烤雞、舂雞腳（需確認免辣）、包燒野生菌菇、菠蘿紫米飯。</p>
+          </div>
+
+          <div class="p-2.5 rounded-xl bg-emerald-50/80 border border-emerald-200/70">
+            <span class="font-bold text-emerald-950 block text-[13px] mb-1">🍲 想吃雲南山珍、鮮甜湯鍋</span>
+            <p><strong>首選：</strong>菌公主、鮮菌王。</p>
+            <p class="mt-0.5 text-stone-600"><strong>建議：</strong>當季菌菇拼盤＋生態土雞清湯底。野生菌務必確認充分煮熟（計時20分鐘以上），嚴禁食用未熟或不明菌種。</p>
+          </div>
+
+          <div class="p-2.5 rounded-xl bg-purple-50/80 border border-purple-200/70">
+            <span class="font-bold text-purple-950 block text-[13px] mb-1">🦚 想拍照、聚餐、體驗民族風情</span>
+            <p><strong>首選：</strong>喃傣手抓飯孔雀宴、傣王府孔雀宴。</p>
+            <p class="mt-0.5 text-stone-600"><strong>建議：</strong>適合 2–6 人點雙人或小套餐。預訂前先確認份量、是否含飲品，以及歌舞表演是否額外收費。</p>
+          </div>
+
+          <div class="p-2.5 rounded-xl bg-blue-50/80 border border-blue-200/70">
+            <span class="font-bold text-blue-950 block text-[13px] mb-1">🥥 想吃泰式、東南亞融合料理</span>
+            <p><strong>首選：</strong>泰傣餐廳（西雙版納洲際度假酒店）。</p>
+            <p class="mt-0.5 text-stone-600"><strong>建議：</strong>適合想換口味或最後一天在機場前享用。前往前先核對最新營業狀態與菜單。</p>
+          </div>
+
+          <div class="p-2.5 rounded-xl bg-rose-50/80 border border-rose-200/70">
+            <span class="font-bold text-rose-950 block text-[13px] mb-1">🍧 想吃甜品、飲料、逛夜市</span>
+            <p><strong>首選：</strong>婉泰 搭配 告莊星光夜市／江邊景洪夜市。</p>
+            <p class="mt-0.5 text-stone-600"><strong>特色：</strong>招牌泡魯達、椰奶甜品、熱帶水果冰飲。適合正餐後散步搭配。</p>
+          </div>
+
+          <div class="p-2.5 rounded-xl bg-stone-100 border border-stone-300/80">
+            <span class="font-bold text-stone-900 block text-[13px] mb-1">🍢 想吃在地燒烤與夜宵</span>
+            <p><strong>推薦：</strong>江邊景洪夜市、傣味燒烤店、曼斗一帶地方小館。</p>
+            <p class="mt-0.5 text-stone-600"><strong>叮嚀：</strong>必點烤五花肉、香茅烤魚、烤豬頸肉。先看清價目表再點餐，要求完全不刷辣醬。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 美團 / 大眾點評 / 米其林 評價辨識指引 -->
+      <div class="glass-card rounded-2xl p-4 shadow-sm border border-stone-200/80 space-y-2.5 text-xs">
+        <h3 class="font-bold text-stone-900 text-sm flex items-center gap-1.5">
+          <span>📊</span>
+          <span>美團、大眾點評、米其林要怎麼看？</span>
+        </h3>
+        <p class="text-stone-600 leading-relaxed">
+          建議將不同標準分開參考，切勿只看星星數字或刷榜評分：
+        </p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-[11px] border border-stone-200 rounded-lg overflow-hidden">
+            <thead class="bg-stone-100 text-stone-700">
+              <tr>
+                <th class="p-2 border-b">標註類別</th>
+                <th class="p-2 border-b">代表意義</th>
+                <th class="p-2 border-b">本次行程處理方式</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-200 text-stone-600">
+              <tr>
+                <td class="p-2 font-semibold text-stone-800">米其林星級</td>
+                <td class="p-2">正式星級認證</td>
+                <td class="p-2 text-rose-700">尚未查證到上述景洪餐廳獲星，絕不隨意標註</td>
+              </tr>
+              <tr>
+                <td class="p-2 font-semibold text-stone-800">米其林指南推薦</td>
+                <td class="p-2">收錄於官方指南入選</td>
+                <td class="p-2">以客觀口味與衛生為準，不虛構標籤</td>
+              </tr>
+              <tr>
+                <td class="p-2 font-semibold text-stone-800">美團／大眾點評優質</td>
+                <td class="p-2">平台分數、評論量或必吃榜</td>
+                <td class="p-2 text-emerald-800">出發前於 App 核對最新帶圖評論與近期菜單價格</td>
+              </tr>
+              <tr>
+                <td class="p-2 font-semibold text-stone-800">其他平台口碑</td>
+                <td class="p-2">攜程、Trip.com 口碑與在地茶農推薦</td>
+                <td class="p-2">挑選順序：當地風味先看曼飛龍/紅牙象；食材先比菌公主/鮮菌王</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 餐廳詳細列表 -->
+      <div id="restaurantCardsList" class="space-y-3">
+        <!-- JS 動態生成餐廳卡片 -->
+      </div>
+    </section>
+
+    <!-- 分頁 3：檢查清單與打包 (Checklist View) -->
+    <section id="checklistView" class="hidden space-y-4 pt-1">
+      <div class="glass-card rounded-2xl p-4 shadow-sm border border-stone-200/80">
+        <h2 class="text-base font-bold text-stone-900 flex items-center justify-between">
+          <span>📋 出發前待確認清單</span>
+          <span class="text-xs text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full font-normal">本地記憶存取</span>
+        </h2>
+        <p class="text-xs text-stone-500 mt-1">點擊可即時打勾，下次開啟保持狀態：</p>
+        <div class="mt-3 space-y-2.5" id="bookingChecklist">
+          <!-- JS 動態生成 -->
+        </div>
+      </div>
+
+      <div class="glass-card rounded-2xl p-4 shadow-sm border border-stone-200/80">
+        <h2 class="text-base font-bold text-stone-900 flex items-center justify-between">
+          <span>🎒 氣候隨身裝備與打包清單</span>
+          <span class="text-xs text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full font-normal">洋蔥式穿法</span>
+        </h2>
+        <div class="mt-3 space-y-2.5" id="packingChecklist">
+          <!-- JS 動態生成 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 分頁 4：行程核心原則與交通比價 (Features View) -->
+    <section id="featuresView" class="hidden space-y-4 pt-1">
+      <!-- 飲食安全備忘 -->
+      <div class="glass-card rounded-2xl p-4 shadow-sm border border-stone-200/80">
+        <div class="flex items-center space-x-2 text-emerald-800 font-bold text-base mb-2">
+          <span>🌿</span>
+          <h2>飲食安全備忘（完全不辣 ‧ 絕無生食）</h2>
+        </div>
+        <div class="space-y-2 text-xs text-stone-700 leading-relaxed">
+          <div class="p-2 rounded-lg bg-amber-50 border border-amber-200">
+            <span class="font-bold text-amber-950">1. 點餐時明確說明：</span>「完全不辣，不能只做微辣或少辣」。要求廚房烹調中完全不加辣椒、辣椒油、辣椒粉、辣醬及辣味底料。
+          </div>
+          <div class="p-2 rounded-lg bg-rose-50 border border-rose-200">
+            <span class="font-bold text-rose-950">2. 絕無生食：</span>杜絕生醃、半熟肉類、剁生、生血撒撇、未熟透之江蝦與生牛肉。辣味蘸水與調味料務必分開放。
+          </div>
+          <div class="p-2 rounded-lg bg-emerald-50 border border-emerald-200">
+            <span class="font-bold text-emerald-950">3. 野生菌安全：</span>只選擇來源可靠的專業餐廳（菌公主／鮮菌王），服務員開鍋計時至少 20 分鐘確認充分煮熟；絕不自行採食野生菌。
+          </div>
+          <div class="p-2 rounded-lg bg-stone-50 border border-stone-200">
+            <span class="font-bold text-stone-900">4. 景邁山餐食：</span>茶山民宿餐飲需提早至少一天溝通，確保從備料與烹煮流程杜絕辛辣，以清燉土雞、清炒野菜為主。
+          </div>
+        </div>
+      </div>
+
+      <!-- 跨區交通比價表 -->
+      <div class="glass-card rounded-2xl p-4 shadow-sm border border-stone-200/80">
+        <div class="flex items-center space-x-2 text-emerald-800 font-bold text-base mb-2">
+          <span>🚕</span>
+          <h2>跨區交通模式與效益比價表（雙人）</h2>
+        </div>
+        <div class="space-y-2 text-xs">
+          <div class="p-2.5 rounded-xl bg-stone-50 border border-stone-200">
+            <div class="flex justify-between font-bold text-stone-900 mb-1">
+              <span>景洪 ⇄ 植物園【往返】</span>
+              <span class="text-emerald-700">包車推薦</span>
+            </div>
+            <p class="text-stone-600"><strong>建議包車：</strong>往返約 2 hr｜一日包車約 ¥380。</p>
+            <p class="text-stone-500"><strong>班車對比：</strong>往返約 4 hr｜雙人班車票約 ¥100。園區偏遠回程極難叫車，包車省去等車與折返 2 小時。</p>
+          </div>
+
+          <div class="p-2.5 rounded-xl bg-stone-50 border border-stone-200">
+            <div class="flex justify-between font-bold text-stone-900 mb-1">
+              <span>景洪 ⇄ 景邁山【往返3天】</span>
+              <span class="text-emerald-700">包車強烈推薦</span>
+            </div>
+            <p class="text-stone-600"><strong>建議包車：</strong>單程約 2.5–4 hr（思瀾高速直達）｜專車 3 天約 ¥1,400–2,000。</p>
+            <p class="text-stone-500"><strong>高鐵避坑：</strong>普洱高鐵站反向折返，大眾轉乘需 6 小時（單程 ¥364），包車直達既省錢又省整天體力。</p>
+          </div>
+
+          <div class="p-2.5 rounded-xl bg-stone-50 border border-stone-200">
+            <div class="flex justify-between font-bold text-stone-900 mb-1">
+              <span>景洪市區景點間【單程接駁】</span>
+              <span class="text-emerald-700">網約車首選</span>
+            </div>
+            <p class="text-stone-600"><strong>叫車/滴滴：</strong>單程約 10–15 min｜約 ¥10–20。隨叫隨到，避免頂著豔陽久候。</p>
+            <p class="text-stone-500"><strong>公車對比：</strong>單程需 40–50 min｜雙人約 ¥4，下車常需步行 800 公尺。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 體力與跨年政策 -->
+      <div class="glass-card rounded-2xl p-4 shadow-sm border border-stone-200/80">
+        <div class="flex items-center space-x-2 text-emerald-800 font-bold text-base mb-2">
+          <span>🏛️</span>
+          <h2>住宿標準與跨年彈性原則</h2>
+        </div>
+        <ul class="text-xs text-stone-600 space-y-2 list-disc list-inside leading-relaxed">
+          <li><strong>住宿安排：</strong>景洪 5 晚（住告莊西雙景便於步行夜市）＋ 景邁山 2 晚（茶山核心民宿，安靜品茗）。</li>
+          <li><strong>體能控管：</strong>2 位成人，單一景點階梯嚴格控制在 1,000 階以內，全程以平緩步道或園區電瓶車為主，無高強度登山。</li>
+          <li><strong>跨年夜（12/31）彈性：</strong>晚餐後依 2026/2027 當年官方正式公告選擇夜間活動；不預先假設大型煙火或長街宴，優先散步放鬆並確認回房交通。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 分頁 5：氣候與 Windy 即時資訊 (Weather View) -->
+    <section id="weatherView" class="hidden space-y-4 pt-1">
+      <div class="glass-card rounded-2xl p-4 shadow-sm border border-stone-200/80">
+        <div class="flex items-center justify-between mb-2">
+          <h2 class="text-base font-bold text-stone-900 flex items-center gap-1.5">
+            <span>🌦️</span>
+            <span>2026 年底跨年氣候概況</span>
+          </h2>
+          <span class="text-[11px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-medium">12/26 - 01/02</span>
+        </div>
+        <p class="text-xs text-stone-600 leading-relaxed">
+          西雙版納與普洱冬季屬乾季（晴朗乾燥），海拔落差顯著，需準備洋蔥式穿著：
+        </p>
+        <div class="mt-3 space-y-2.5">
+          <div class="p-3 bg-emerald-50/60 rounded-xl border border-emerald-200/60 text-xs">
+            <div class="flex items-center justify-between font-bold text-emerald-950">
+              <span>🌴 西雙版納（景洪市區 • 海拔 550m）</span>
+              <span class="text-emerald-800">13℃ ～ 26℃</span>
+            </div>
+            <p class="text-[11px] text-stone-600 mt-1">日間溫暖如春末，建議棉麻長袖搭配長褲；傍晚在瀾滄江邊散步請備輕薄防風外套。</p>
+          </div>
+          <div class="p-3 bg-amber-50/60 rounded-xl border border-amber-200/60 text-xs">
+            <div class="flex items-center justify-between font-bold text-amber-950">
+              <span>⛰️ 普洱景邁山（茶山區 • 海拔 1,400m）</span>
+              <span class="text-amber-800">8℃ ～ 20℃</span>
+            </div>
+            <p class="text-[11px] text-stone-600 mt-1">日夜溫差高達 12℃。晨間茶林雲海與入夜降至 8℃，<strong>必須備妥輕薄羽絨服或保暖衝鋒衣</strong>。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Windy 氣象雷達 -->
+      <div class="glass-card rounded-2xl p-4 shadow-sm border border-stone-200/80">
+        <div class="flex items-center justify-between mb-2">
+          <div>
+            <h3 class="text-xs font-bold text-stone-800">📡 Windy 即時雲層與氣象雷達</h3>
+            <p class="text-[11px] text-stone-500">西雙版納與景邁山即時氣候動態</p>
+          </div>
+          <a href="https://www.windy.com/22.000/100.800?21.900,100.800,9" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold px-2.5 py-1 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm transition">
+            開啟 Windy ↗
+          </a>
+        </div>
+        <div class="w-full h-56 rounded-xl overflow-hidden border border-stone-200 shadow-inner bg-stone-900">
+          <iframe class="w-full h-full border-0" src="https://embed.windy.com/embed2.html?lat=22.000&lon=100.800&detailLat=22.000&detailLon=100.800&width=450&height=250&zoom=8&level=surface&overlay=temp&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 底部固定導覽列 -->
+  <nav class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-stone-200 shadow-lg">
+    <div class="max-w-md mx-auto grid grid-cols-4 px-2 py-1.5 text-center">
+      <button onclick="switchMainTab('itinerary')" id="navBtn-itinerary" class="flex flex-col items-center justify-center py-1 text-emerald-800 transition font-bold scale-105">
+        <span class="text-lg">🗓️</span>
+        <span class="text-[11px] font-bold mt-0.5 tracking-tight">每日行程</span>
+      </button>
+
+      <button onclick="switchMainTab('food')" id="navBtn-food" class="flex flex-col items-center justify-center py-1 text-stone-400 hover:text-emerald-700 transition font-medium">
+        <span class="text-lg">🍜</span>
+        <span class="text-[11px] font-medium mt-0.5 tracking-tight">餐廳指南</span>
+      </button>
+
+      <button onclick="switchMainTab('checklist')" id="navBtn-checklist" class="flex flex-col items-center justify-center py-1 text-stone-400 hover:text-emerald-700 transition font-medium">
+        <span class="text-lg">📋</span>
+        <span class="text-[11px] font-medium mt-0.5 tracking-tight">行前清單</span>
+      </button>
+
+      <button onclick="switchMainTab('features')" id="navBtn-features" class="flex flex-col items-center justify-center py-1 text-stone-400 hover:text-emerald-700 transition font-medium">
+        <span class="text-lg">✨</span>
+        <span class="text-[11px] font-medium mt-0.5 tracking-tight">原則比價</span>
+      </button>
+
+      <button onclick="switchMainTab('weather')" id="navBtn-weather" class="hidden"></button>
+    </div>
+
+    <!-- 次功能速查列 -->
+    <div class="max-w-md mx-auto px-4 pb-1.5 flex justify-between items-center text-[11px] border-t border-stone-100 pt-1 text-stone-500">
+      <button onclick="switchMainTab('weather')" id="subnav-weather-btn" class="hover:text-emerald-700 flex items-center gap-1 font-medium">
+        <span>🌤️ 檢視天氣預測 (Windy)</span>
+      </button>
+      <button onclick="openBudgetModal()" class="text-emerald-800 font-semibold hover:underline flex items-center gap-1">
+        <span>💰 雙人預算表 (¥18,500~)</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 預算表彈窗 (Modal) -->
+  <div id="budgetModal" class="fixed inset-0 z-50 bg-black/60 hidden items-center justify-center p-4 backdrop-blur-sm">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-4 shadow-2xl space-y-3 max-h-[85vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b pb-2">
+        <h3 class="text-sm font-bold text-stone-900">雙人 8天7夜 預算參考（2位成人）</h3>
+        <button onclick="closeBudgetModal()" class="text-stone-400 hover:text-stone-700 text-lg font-bold px-1.5">✕</button>
+      </div>
+      <div class="text-xs space-y-2">
+        <div class="flex justify-between p-2 rounded bg-stone-50">
+          <span class="font-medium text-stone-600">兩人來回機票 (深圳 ⇄ 版納直飛)</span>
+          <span class="font-bold text-stone-800">¥4,000 – 8,000</span>
+        </div>
+        <div class="flex justify-between p-2 rounded bg-stone-50">
+          <span class="font-medium text-stone-600">7晚住宿 (景洪5晚 + 景邁山2晚)</span>
+          <span class="font-bold text-stone-800">¥7,000 – 14,000</span>
+        </div>
+        <div class="flex justify-between p-2 rounded bg-stone-50">
+          <span class="font-medium text-stone-600">往返景邁山包車及市區交通</span>
+          <span class="font-bold text-stone-800">¥2,500 – 4,000</span>
+        </div>
+        <div class="flex justify-between p-2 rounded bg-stone-50">
+          <span class="font-medium text-stone-600">餐飲、甜品、夜市熟食</span>
+          <span class="font-bold text-stone-800">¥2,500 – 4,000</span>
+        </div>
+        <div class="flex justify-between p-2 rounded bg-stone-50">
+          <span class="font-medium text-stone-600">景點門票與茶文化體驗</span>
+          <span class="font-bold text-stone-800">¥1,500 – 3,000</span>
+        </div>
+        <div class="flex justify-between p-2 rounded bg-stone-50">
+          <span class="font-medium text-stone-600">預備金與保險</span>
+          <span class="font-bold text-stone-800">¥1,000 – 2,000</span>
+        </div>
+        <div class="flex justify-between p-2.5 rounded-xl bg-emerald-900 text-white font-bold mt-2">
+          <span>兩人整體預估總計</span>
+          <span class="text-amber-300">¥18,500 – 35,000</span>
+        </div>
+      </div>
+      <p class="text-[10px] text-stone-400 text-center leading-tight">
+        ※ 依機票、跨年住宿浮動與包車實際報價為準，跨年期間建議儘早確認。
+      </p>
+    </div>
+  </div>
+
+  <!-- 資料與核心互動邏輯 -->
+  <script>
+    // 2026/12/26 (六) - 2027/01/02 (六) 逐日行程資料
+    const itineraryData = [
+      {
+        day: 1,
+        date: "2026/12/26（六）",
+        shortDate: "12/26 六",
+        title: "抵達景洪 ‧ 入住告莊 ‧ 星光夜市",
+        city: "西雙版納 景洪市",
+        pace: "下午抵達休整，適應氣候；傍晚漫步大金塔周邊，晚上悠閒逛星光夜市熟食與品嚐甜品。",
+        hotel: "建議入住告莊西雙景附近（方便晚上步行往返夜市）",
+        timeline: [
+          {
+            time: "14:30 – 16:00",
+            name: "抵達嘎灑機場 ＆ 專車前往告莊酒店辦理入住",
+            duration: "1.5 小時",
+            stairs: "平地無階梯",
+            isWorldHeritage: false,
+            transport: "專車或預約接送前往景洪（約 10 km，20-25 分鐘）",
+            desc: "依航班抵達西雙版納嘎灑國際機場，專車接送直達告莊西雙景住宿。客房稍作休整、適應西南溫暖氣候。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=西雙版納嘎灑國際機場",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=西雙版納嘎灑國際機場+實景",
+            photoUrl: ""
+          },
+          {
+            time: "17:00 – 18:30",
+            name: "大金塔與湄公河周邊傍晚散步",
+            duration: "1.5 小時",
+            stairs: "平緩步道，台階少於 30 階",
+            isWorldHeritage: false,
+            transport: "步行約 5–8 分鐘",
+            desc: "告莊地標景洪大金塔在夕陽下氣勢恢宏，沿江濱平緩綠道散步，感受熱帶江畔傍晚微風。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=景洪大金塔",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=景洪大金塔+傍晚",
+            photoUrl: ""
+          },
+          {
+            time: "18:30 – 21:00",
+            name: "湄公河星光夜市漫遊 ＆ 婉泰甜品候選",
+            duration: "2.5 小時",
+            stairs: "平整石板步行街",
+            isWorldHeritage: false,
+            restaurantTag: "🍧 觀光型夜市 / 現做熱熟食",
+            signatureDish: "夜市現烤熟食、熱炒時蔬、菠蘿飯；婉泰招牌泡魯達、椰奶甜品、鮮榨熱帶水果冰飲（可要求少冰/去冰）",
+            desc: "星光夜市適合拍照、看夜景、逛特色手工藝攤位。晚餐在夜市挑選現點現做熱透熟食；若航班抵達較晚，簡單吃即可。",
+            mapsUrl: "https://maps.google.com/?cid=18269848810052484367&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=西雙版納告莊星光夜市+夜景",
+            photoUrl: ""
+          }
+        ],
+        transportPlan: {
+          recommended: "嘎灑機場 ➔ 告莊酒店：預約專車或滴滴約 ¥60–80（20 分鐘）；夜市與大金塔全程步行直達。",
+          contrast: "機場公車轉乘：需拖行李轉車，耗時超過 60 分鐘，首日抵達不推薦。",
+          summary: "當日累計車程約 25 分鐘 ｜ 預估交通費約 ¥60–80（2人）"
+        },
+        contingency: "若航班延誤或較晚抵達，取消大金塔散步，辦理入住後直接於酒店周邊或夜市入口簡單享用熱湯熟食早點就寢。",
+        notice: "【飲食提醒】不吃生醃、涼拌生食及未完全熟透的食物；夜市點餐明確要求完全不辣，醬料分開放。"
+      },
+      {
+        day: 2,
+        date: "2026/12/27（日）",
+        shortDate: "12/27 日",
+        title: "西雙版納熱帶植物園 ‧ 傣味烤雞",
+        city: "西雙版納 勐臘縣勐侖鎮",
+        pace: "自然生態巡禮，半天至大半天漫遊植物園，傍晚返回景洪品嚐正宗曼飛龍烤雞。",
+        hotel: "景洪／告莊西雙景核心酒店",
+        timeline: [
+          {
+            time: "09:00 – 14:00",
+            name: "中國科學院西雙版納熱帶植物園（西區精華漫遊）",
+            duration: "5 小時（含園內簡單熟食午餐）",
+            stairs: "園區電瓶車接駁，平緩草地與木棧道，累計少於 80 階",
+            isWorldHeritage: false,
+            badge: "🌿 國家 5A 級景區 ‧ 中國面積最大熱帶植物園",
+            transport: "景洪出發專車約 60 km（預留單程約 1.5 小時）",
+            desc: "依體力選擇園區西區路線，欣賞熱帶植物、棕櫚植物、巨型王蓮及雨林板根奇觀。中午在園區內安排簡單熟食午餐，不額外繞路。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=中國科學院西雙版納熱帶植物園",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=中國科學院西雙版納熱帶植物園+王蓮",
+            photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Tropical_Botanical_Garden%2C_Xishuangbanna_-_panoramio_-_Colin_W.jpg/640px-Tropical_Botanical_Garden%2C_Xishuangbanna_-_panoramio_-_Colin_W.jpg"
+          },
+          {
+            time: "15:30 – 17:30",
+            name: "專車返回景洪市區 ＆ 酒店小憩",
+            duration: "2 小時",
+            stairs: "平地無階梯",
+            isWorldHeritage: false,
+            transport: "專車返回告莊（約 60 km，1.5 小時）",
+            desc: "返回酒店梳洗小憩，避開午後熱帶強烈紫外線，為晚間正式傣味大餐放鬆體能。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=告莊西雙景",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=告莊西雙景",
+            photoUrl: ""
+          },
+          {
+            time: "18:30 – 20:30",
+            name: "晚餐：曼飛龍烤雞（正宗傣味名店）",
+            duration: "2 小時",
+            stairs: "平地室內",
+            isWorldHeritage: false,
+            restaurantTag: "🍗 傣味首選名店 / 免辣全熟",
+            signatureDish: "傣味烤雞、香茅草烤魚（指定完全免辣、烤透全熟）、菠蘿紫米飯、清炒時蔬",
+            desc: "景洪極具代表性的傣味餐廳。點餐逐項確認不加辣；舂雞腳通常有辣，除非店家確認能免辣否則不直接點。",
+            mapsUrl: "https://maps.google.com/?cid=2035998840866654644&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=曼飛龍烤雞+西雙版納",
+            photoUrl: ""
+          }
+        ],
+        transportPlan: {
+          recommended: "景洪 ⇄ 植物園：包車一日往返隨行約 ¥380（預留單程 1.5 小時）；市區至曼飛龍烤雞叫車約 ¥10–15。",
+          contrast: "客運班車：勐侖客運班次受限，回程常客滿無座，耗時超過 3.5 小時，強烈建議包車。",
+          summary: "當日累計車程約 3 小時 ｜ 預估包車與市區交通約 ¥400（2人）"
+        },
+        contingency: "若天候多雲或微雨，植物園內綠意更盛；若遇暴雨可改參觀熱帶雨林民族文化博物館（室內展館）。",
+        notice: "【重要提醒】提前購買西門門票＋電瓶車票；曼飛龍烤雞熱門時段需提早排隊或訂位，點餐前嚴格確認無辣椒與熟度。"
+      },
+      {
+        day: 3,
+        date: "2026/12/28（一）",
+        shortDate: "12/28 一",
+        title: "曼聽公園 ‧ 總佛寺 ‧ 傣族文化 ‧ 江邊景洪夜市",
+        city: "西雙版納 景洪市",
+        pace: "文化古蹟平緩漫步，午餐品嚐紅牙象家常菜，午後避熱放鬆，晚間體驗在地江邊夜市。",
+        hotel: "景洪／告莊西雙景核心酒店",
+        timeline: [
+          {
+            time: "09:00 – 12:00",
+            name: "曼聽公園 ＋ 總佛寺無障礙直通巡禮",
+            duration: "3 小時",
+            stairs: "平整平地步道，大殿處設有無障礙斜坡通道（累計少於 100 階）",
+            isWorldHeritage: false,
+            transport: "告莊叫車前往（4.5 km，約 12 分鐘）",
+            desc: "昔日傣王御花園，漫步白塔與周總理銅像廣場，自後院御象苑平緩步道直穿總佛寺中庭，深入了解南傳佛教與傣族文化。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=曼聽公園",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=西雙版納總佛寺+曼聽公園",
+            photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Dai_Buddhist_temple_in_Jinghong%2C_Yunnan%2C_China.jpg/640px-Dai_Buddhist_temple_in_Jinghong%2C_Yunnan%2C_China.jpg"
+          },
+          {
+            time: "12:15 – 13:30",
+            name: "午餐：紅牙象傣味餐廳（地道傣味家常菜）",
+            duration: "1 小時 15 分鐘",
+            stairs: "平地室內",
+            isWorldHeritage: false,
+            restaurantTag: "🐟 傣味家常精選 / 原味熱烹",
+            signatureDish: "全熟原汁鮮魚料理、香烤熟雞肉、熟炒時蔬、香糯米飯（確認全程免辣烹煮）",
+            desc: "以傣味家常菜見長，點餐前與廚房確認所有菜色均可完全不辣，保證無生食且全熟呈現。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=紅牙象傣味餐廳+西雙版納景洪",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=紅牙象傣味餐廳+景洪",
+            photoUrl: ""
+          },
+          {
+            time: "13:30 – 17:30",
+            name: "回酒店午休 ＆ 傣族非遺手工藝體驗 / 自由活動",
+            duration: "4 小時",
+            stairs: "平地無階梯",
+            isWorldHeritage: false,
+            transport: "叫車往返（約 10–15 分鐘）",
+            desc: "13:30–15:30 回酒店小憩避開正午酷熱；16:00 安排告莊傣族非遺手工製銀、傣陶或慢步調品茗。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=告莊西雙景非遺文化街",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=告莊非遺手工藝",
+            photoUrl: ""
+          },
+          {
+            time: "18:00 – 20:30",
+            name: "晚餐：江邊景洪夜市（在地市井生活體驗）",
+            duration: "2.5 小時",
+            stairs: "平坦江邊街道",
+            isWorldHeritage: false,
+            restaurantTag: "🍢 在地日常生活夜市 / 現烤熟食",
+            signatureDish: "現烤烤五花肉、烤豬頸肉、香烤全熟魚、新鮮現榨熱帶果汁",
+            desc: "不同於星光夜市的觀光造景，江邊夜市呈現更豐富的市民生活氣息。先看價目表再點餐，要求完全不刷辣醬，烤透熱食。",
+            mapsUrl: "https://maps.google.com/?cid=9979385348757758853&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=西雙版納江邊夜市+燒烤",
+            photoUrl: ""
+          }
+        ],
+        transportPlan: {
+          recommended: "告莊 ➔ 曼聽公園約 ¥15；曼聽 ➔ 紅牙象約 ¥15；酒店 ⇄ 江邊夜市往返叫車約 ¥25–30。",
+          contrast: "市區公車轉乘單程需 40–50 分鐘，雙人各段約 ¥16，正午豔陽步行辛苦。",
+          summary: "當日累計車程約 40 分鐘 ｜ 預估市區叫車費約 ¥60–75（2人）"
+        },
+        contingency: "若午後體力充沛且對民族表演有興趣，可於非遺體驗時段前核對最新售票場次；若疲倦則在酒店內茶室放鬆。",
+        notice: "【燒烤提醒】夜市烤肉刷醬、撒料及蘸水極常含辣椒，必須再三叮囑「不加任何辣椒及辣粉」，並確認烤透熟透。"
+      },
+      {
+        day: 4,
+        date: "2026/12/29（二）",
+        shortDate: "12/29 二",
+        title: "景洪 → 景邁山 ‧ 入住茶山村寨",
+        city: "普洱 瀾滄拉祜族自治縣景邁山",
+        pace: "離開城市前進世遺茶山，專屬包車直達，入住特色民宿，享受質樸茶山時光。",
+        hotel: "景邁山特色村民宿（如翁基或糯干周邊安靜茶村民宿）",
+        timeline: [
+          {
+            time: "08:30 – 13:00",
+            name: "早餐退房 ＆ 包車前往世界遺產景邁山",
+            duration: "4.5 小時（含沿途休息與山路）",
+            stairs: "平穩車程無階梯",
+            isWorldHeritage: true,
+            transport: "專屬包車（景洪至景邁山暫以約 4 小時以上規劃，實際視路況）",
+            desc: "早餐後退房啟程，包車經思瀾高速直奔景邁山。司機提早透過小程序報備，避開高鐵普洱站轉乘 6 小時之苦。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=普洱景邁山古茶林",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=普洱景邁山+風光",
+            photoUrl: ""
+          },
+          {
+            time: "13:00 – 14:00",
+            name: "途中或山腳乾淨餐館：簡單熟食午餐",
+            duration: "1 小時",
+            stairs: "平地室內",
+            isWorldHeritage: false,
+            desc: "請司機協助挑選衛生良好、現點現做且能完全不加辣的小館，享用簡單清爽的熱湯麵或炒飯。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=瀾滄惠民鎮餐飲",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=景邁山惠民鎮美食",
+            photoUrl: ""
+          },
+          {
+            time: "14:30 – 17:30",
+            name: "抵達景邁山入住民宿 ＆ 翁基古寨周邊輕步漫步",
+            duration: "3 小時",
+            stairs: "青石板路起伏約 100–150 階",
+            isWorldHeritage: true,
+            badge: "🏛️ UNESCO 世界文化遺產",
+            transport: "包車抵達茶寨",
+            desc: "辦理民宿入住手續。若時間充裕漫步翁基布朗族古寨木樓；若遇交通延誤，改為在民宿露台欣賞茶山風景，不硬塞景點。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=景邁山翁基古寨",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=景邁山翁基古寨+木樓",
+            photoUrl: ""
+          },
+          {
+            time: "18:30 – 20:00",
+            name: "晚餐：景邁山民宿家常菜（全熟無辣燉湯）",
+            duration: "1.5 小時",
+            stairs: "民宿內平地",
+            isWorldHeritage: false,
+            restaurantTag: "🍵 茶山農家質樸原味",
+            signatureDish: "清燉走地土雞湯、熟炒高山時蔬、茶油蒸全熟肉片、香米飯（全程不放一粒辣椒）",
+            desc: "山區餐館選擇有限，提前請民宿主理人準備無辣熱菜，確保從下鍋烹煮起就杜絕辣椒，而非上桌挑掉。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=景邁山翁基民宿",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=景邁山民宿家常菜",
+            photoUrl: ""
+          }
+        ],
+        transportPlan: {
+          recommended: "景洪 ➔ 景邁山民宿：專屬包車單程約 4 小時，3天2晚專屬包車合約直通山寨各景點。",
+          contrast: "高鐵+客車+接駁車：耗時 6 小時，需多次換乘搬運行李，極為勞頓且不划算。",
+          summary: "當日累計車程約 4–4.5 小時 ｜ 費用包含於 3 日包車總預算中"
+        },
+        contingency: "山路多彎，建議上車前 30 分鐘備妥暈車貼或薄荷精油；若午後抵達較晚，直接在民宿泡茶看夕陽。",
+        notice: "【住宿餐飲提醒】山區日夜溫差大，入夜僅 8℃–12℃，備好輕羽絨衣；提前向民宿確認晚餐完全無辣烹飪。"
+      },
+      {
+        day: 5,
+        date: "2026/12/30（三）",
+        shortDate: "12/30 三",
+        title: "景邁古茶林 ‧ 翁基古寨 ‧ 糯干古寨 ‧ 茶文化體驗",
+        city: "普洱 瀾滄拉祜族自治縣景邁山",
+        pace: "世遺茶文化深度沉浸，漫步千年古茶林棧道，探訪布朗族與傣族古寨，圍坐品茗。",
+        hotel: "景邁山特色村民宿",
+        timeline: [
+          {
+            time: "09:00 – 11:30",
+            name: "【🏛️ UNESCO 世界遺產】景邁古茶林（大平掌核心區）生態步行",
+            duration: "2.5 小時",
+            stairs: "平緩林間木棧道，累計僅約 50–80 階",
+            isWorldHeritage: true,
+            badge: "🏛️ UNESCO 世界文化遺產",
+            transport: "包車前往大平掌（約 15 分鐘）",
+            desc: "建議聘請熟悉路線的當地導覽，漫步林下古茶樹群，了解千年林下茶生態共生體系，負氧離子滿滿。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=景邁山大平掌古茶林",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=景邁山大平掌古茶林",
+            photoUrl: ""
+          },
+          {
+            time: "12:00 – 13:00",
+            name: "午餐：村寨餐館 / 民宿地道家常菜",
+            duration: "1 小時",
+            stairs: "平地室內",
+            isWorldHeritage: false,
+            desc: "以當地家常菜、米飯、熟蔬菜及全熟肉類為主，清爽不油膩，健康無辣。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=景邁山農家樂",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=景邁山農家樂美食",
+            photoUrl: ""
+          },
+          {
+            time: "14:00 – 17:30",
+            name: "【🏛️ UNESCO 世界遺產】糯干傣寨巡禮 ＆ 茶品飲製茶文化體驗",
+            duration: "3.5 小時",
+            stairs: "古寨平石板路約 50 階；半山觀景台約 180 階（可依體力自由選擇登頂與否）",
+            isWorldHeritage: true,
+            badge: "🏛️ UNESCO 世界文化遺產",
+            transport: "包車前往糯干水寨（約 20 分鐘）",
+            desc: "山谷間層疊黑瓦雙層傣樓，古樸靜謐。走訪老茶農家體驗正宗普洱生茶品飲、了解製茶工藝，預留充足拍照散步時間。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=景邁山糯干水寨",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=景邁山糯干水寨",
+            photoUrl: ""
+          },
+          {
+            time: "18:30 – 20:00",
+            name: "晚餐：景邁山民宿／村寨精選餐館",
+            duration: "1.5 小時",
+            stairs: "平地室內",
+            isWorldHeritage: false,
+            restaurantTag: "🍵 茶山特色家常菜",
+            signatureDish: "全熟走地雞清湯、熟炒高山野菜、若有菌菇料理必須來源可靠且煮透（嚴禁自行採食野生菌）",
+            desc: "在山寨夜色中享用暖胃熱湯。茶山入夜安靜，餐後漫步星空下回房休息。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=景邁山翁基餐廳",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=景邁山特色菜",
+            photoUrl: ""
+          }
+        ],
+        transportPlan: {
+          recommended: "民宿 ⇄ 大平掌 ⇄ 糯干古寨：全天包車隨行，省去等候景區接駁車時間。",
+          contrast: "景區接駁車：班次較少且發車時間受限，往返多個寨子較不自由。",
+          summary: "當日茶山村寨累計車程約 1.5 小時 ｜ 包含於包車合約"
+        },
+        contingency: "茶山步道及石板路晨露微濕，務必穿著防滑平底鞋；若對咖啡因敏感，傍晚 17:00 後減少品飲濃茶。",
+        notice: "【世遺禮儀】尊重布朗族與傣族村寨風俗，未經允許勿隨意進入私人茶倉；愛護古茶樹嚴禁折枝。"
+      },
+      {
+        day: 6,
+        date: "2026/12/31（四）",
+        shortDate: "12/31 四",
+        title: "景邁山 → 景洪 ‧ 跨年夜",
+        city: "西雙版納 景洪市告莊西雙景",
+        pace: "上午包車返抵景洪，下午客房休整補眠，晚餐享用滋補菌菇熱鍋，悠閒跨年。",
+        hotel: "景洪／告莊西雙景核心酒店",
+        timeline: [
+          {
+            time: "09:00 – 13:30",
+            name: "退房 ＆ 包車返回西雙版納景洪市區",
+            duration: "4.5 小時車程（途中簡單熟食午餐）",
+            stairs: "平穩車程無階梯",
+            isWorldHeritage: false,
+            transport: "包車直達（思瀾高速，預留充足交通時間與跨年接送安排）",
+            desc: "告別景邁茶山啟程返回景洪，途中安排簡單全熟熟食午餐，不安排嚴苛訂位餐廳以免山路延誤。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=告莊西雙景",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=告莊西雙景",
+            photoUrl: ""
+          },
+          {
+            time: "14:30 – 17:30",
+            name: "入住景洪酒店 ＆ 客房休息整理行李",
+            duration: "3 小時",
+            stairs: "平地無階梯",
+            isWorldHeritage: false,
+            desc: "辦理入住、安靜補眠充電，確認晚上的餐廳訂位與夜間散步路線，避開午後喧鬧。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=告莊度假酒店",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=告莊度假酒店",
+            photoUrl: ""
+          },
+          {
+            time: "18:00 – 20:00",
+            name: "跨年晚餐：菌公主 或 鮮菌王（野生菌雞湯火鍋 二選一）",
+            duration: "2 小時",
+            stairs: "平地室內",
+            isWorldHeritage: false,
+            restaurantTag: "🍲 跨年滋補首選 / 清湯煮透",
+            signatureDish: "當季野生菌菇拼盤、生態土雞清湯底（絕無辣油、辣底料）、計時20分鐘確保完全煮熟",
+            desc: "雲南山珍極品！提前預訂清湯鍋底，服務生定時開蓋確認熟透；若抵達較晚改為酒店旁熟食簡餐，不為火鍋趕路。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=菌公主野生菌火鍋+景洪",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=野生菌土雞火鍋+景洪",
+            photoUrl: ""
+          },
+          {
+            time: "20:30 – 00:15",
+            name: "告莊周邊散步 ＆ 跨年夜活動（依官方公告彈性安排）",
+            duration: "約 3.5 小時",
+            stairs: "平坦步行街",
+            isWorldHeritage: false,
+            transport: "告莊核心步行直達",
+            desc: "晚餐後在告莊周邊夜景散步感受跨年氛圍。活動以當年官方公告為準，不預先假設大型煙火或流水席；隨時可悠閒散步回房休息。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=告莊西雙景",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=告莊西雙景+跨年夜",
+            photoUrl: ""
+          }
+        ],
+        transportPlan: {
+          recommended: "景邁山 ➔ 景洪酒店：包車直達約 4 小時；告莊夜間活動全區步行，免去跨年夜交通管制叫車困境。",
+          contrast: "跨年夜告莊外部車流大，外來計程車極難駛入核心區，住景區內步行最明智。",
+          summary: "當日累計車程約 4 小時 ｜ 包含於 3 日包車合約中"
+        },
+        contingency: "若跨年夜人潮擁擠或疲倦，晚餐後提早返回安靜客房或在酒店高樓茶室品茗看夜景，不隨人流推擠。",
+        notice: "【菌菇安全】野生菌火鍋必須現場計時器歸零後方可動筷；跨年夜人潮多，回酒店前確認動線避免散場叫不到車。"
+      },
+      {
+        day: 7,
+        date: "2027/01/01（五）",
+        shortDate: "01/01 五",
+        title: "元旦 ‧ 孔雀宴 ‧ 景洪自由活動",
+        city: "西雙版納 景洪市",
+        pace: "睡到自然醒，享用象徵吉祥的特色孔雀宴，午後慢節奏逛街或補逛夜市。",
+        hotel: "景洪／告莊西雙景核心酒店",
+        timeline: [
+          {
+            time: "10:00 – 11:30",
+            name: "元旦早晨慢時光 ＆ 舒活用餐",
+            duration: "1.5 小時",
+            stairs: "平地無階梯",
+            isWorldHeritage: false,
+            desc: "跨年夜後睡到自然醒，在酒店享用早餐或周邊咖啡店品嚐雲南小粒手沖咖啡，平靜身心。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=告莊咖啡館",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=雲南小粒手沖咖啡",
+            photoUrl: ""
+          },
+          {
+            time: "12:00 – 13:45",
+            name: "元旦特色午餐：喃傣手抓飯孔雀宴（備選：傣王府孔雀宴）",
+            duration: "1 小時 45 分鐘",
+            stairs: "平地室內",
+            isWorldHeritage: false,
+            restaurantTag: "🦚 民族特色盛宴 / 拍照聚餐",
+            signatureDish: "孔雀造形擺盤烤雞、香茅熟魚、菠蘿紫米飯、五色糯米飯、熟時蔬（要求全程不辣、全熟）",
+            desc: "元旦吉祥儀式感！兩人點合適之雙人套餐，事先核對菜色份量與免辣烹調。若喃傣無合適雙人位，可切換為傣王府，二選一即可。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=喃傣手抓飯+景洪",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=喃傣手抓飯+孔雀宴",
+            photoUrl: ""
+          },
+          {
+            time: "14:30 – 17:30",
+            name: "酒店休息 ＆ 告莊周邊散步採買手工藝與茶葉",
+            duration: "3 小時",
+            stairs: "平坦步道",
+            isWorldHeritage: false,
+            transport: "步行即可",
+            desc: "午後回酒店小睡。傍晚漫步告莊挑選合心意的普洱茶餅、傣錦刺繡或熱帶乾果；若前幾天未逛透星光夜市亦可安排補逛。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=告莊西雙景",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=西雙版納茶餅店",
+            photoUrl: ""
+          },
+          {
+            time: "18:30 – 20:00",
+            name: "元旦清淡晚餐：依午餐份量彈性決定",
+            duration: "1.5 小時",
+            stairs: "平地室內",
+            isWorldHeritage: false,
+            restaurantTag: "🍜 暖胃清爽原湯",
+            signatureDish: "若午餐吃飽：原湯道地過橋米線、清淡蔬菜熱湯；若午餐消化快：不辣的傣味清蒸熟食",
+            desc: "不給腸胃負擔，選擇清淡溫暖的熟食熱湯米線，為整趟雲南深度放鬆之行平添舒適餘韻。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=景洪過橋米線",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=雲南傳統原湯過橋米線",
+            photoUrl: ""
+          }
+        ],
+        transportPlan: {
+          recommended: "告莊 ⇄ 孔雀宴餐廳：市區叫車單程約 ¥10–15；其餘告莊散步採買均為步行。",
+          contrast: "本日不建議硬湊路程遙遠的野象谷（單程 1 小時以上），維持慢調度假節奏。",
+          summary: "當日累計車程約 20 分鐘 ｜ 預估市區叫車費約 ¥30（2人）"
+        },
+        contingency: "若想去野象谷，需單獨挪出一整天並包車前往；本行程建議在景洪市區悠閒放鬆，保持度假感。",
+        notice: "【孔雀宴提醒】孔雀宴菜色眾多，務必再三強調「不放生料、不抹辣油、無剁生」，熟透方可食用。"
+      },
+      {
+        day: 8,
+        date: "2027/01/02（六）",
+        shortDate: "01/02 六",
+        title: "景洪 ‧ 早餐 ‧ 返程直飛深圳",
+        city: "西雙版納 ⇄ 深圳",
+        pace: "晨光慢活品咖啡或享用泰傣料理，午後專車送往機場直飛返程。",
+        hotel: "搭機返程，無過夜住宿安排",
+        timeline: [
+          {
+            time: "09:00 – 11:30",
+            name: "行李整理退房 ＆ 告莊江畔晨間散步品咖啡",
+            duration: "2.5 小時",
+            stairs: "平坦步道",
+            isWorldHeritage: false,
+            transport: "步行即可",
+            desc: "依航班時間起床退房，在褪去夜市喧鬧的江畔選一家安靜咖啡館品味手沖小粒咖啡，回味 8 天悠閒假期。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=告莊江畔咖啡",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=告莊江畔咖啡館",
+            photoUrl: ""
+          },
+          {
+            time: "11:30 – 13:00",
+            name: "出發前午餐：住宿附近熱食 / 備選：洲際泰傣餐廳",
+            duration: "1.5 小時",
+            stairs: "平地室內",
+            isWorldHeritage: false,
+            restaurantTag: "🥥 東南亞異國特色（航班晚可選）",
+            signatureDish: "若航班晚且順路：西雙版納洲際酒店【泰傣餐廳】品味精緻泰式清蒸鱸魚與冬蔭清湯；若航班早：就近享用熟食米線",
+            desc: "依航班時間決定，若時間緊湊直接在住宿附近享用熟食米線；時間充裕可前往洲際享用優雅午宴。",
+            mapsUrl: "https://maps.google.com/?cid=5082672164066510657&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=西雙版納洲際泰傣餐廳",
+            photoUrl: ""
+          },
+          {
+            time: "13:30 – 14:15",
+            name: "專車前往西雙版納嘎灑國際機場（JHG）",
+            duration: "45 分鐘（車程約 20 分鐘）",
+            stairs: "航廈平地與電梯",
+            isWorldHeritage: false,
+            transport: "專車送機約 10 km（約 20 分鐘）",
+            desc: "預留充足交通時間抵達機場航站樓出發層，辦理行李托運，搭乘直飛航班返回深圳寶安國際機場（SZX）。",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=西雙版納嘎灑國際機場",
+            searchPhotoUrl: "https://www.google.com/search?tbm=isch&q=西雙版納嘎灑國際機場",
+            photoUrl: ""
+          }
+        ],
+        transportPlan: {
+          recommended: "告莊酒店 ➔ 嘎灑機場：預約專車或叫車約 ¥60–80（單程約 20 分鐘）。",
+          contrast: "公車轉乘：行李多時轉車不便，耗時且費力，返程不建議搭公車。",
+          summary: "當日累計車程約 20–30 分鐘 ｜ 預估送機費約 ¥70（2人）"
+        },
+        contingency: "元旦連假返程機場客流較大，務必至少提前 2 小時抵達機場航廈辦理登機與托運。",
+        notice: "購買茶葉或水果請妥善打包托運，隨身行李留意液體防曬與充電寶容量限制。"
+      }
+    ];
+
+    // 餐廳指南資料庫（含精確評選、特色標籤與地圖連結）
+    const restaurantsData = [
+      {
+        name: "曼飛龍烤雞（告莊景勐寨店 / 總店）",
+        categoryTag: "🍗 傣族料理代表首選",
+        dateTag: "Day 2 晚餐",
+        feature: "想吃最有代表性的傣族烤雞與烤魚首選！在地高人氣名店，烤物火候極佳。",
+        mustOrder: "傣味烤雞、香茅草烤魚（指定完全免辣）、菠蘿紫米飯、清炒時蔬。※ 舂雞腳通常有辣，除非店家確認能免辣否則不直接點。",
+        evaluation: "大眾點評／美團高頻熱榜名店；非米其林星級，出發前確認分店位置與免辣菜單。",
+        mapsUrl: "https://maps.google.com/?cid=2035998840866654644&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ",
+        searchUrl: "https://www.google.com/search?tbm=isch&q=曼飛龍烤雞+西雙版納"
+      },
+      {
+        name: "紅牙象傣味餐廳",
+        categoryTag: "🐟 傣味家常菜首選",
+        dateTag: "Day 3 午餐",
+        feature: "想吃道地傣家家常菜的最佳選擇。菜色溫和耐吃，以原汁熱烹熟菜著稱。",
+        mustOrder: "熟魚或清蒸原味魚料理、香烤熟雞肉、熟炒時蔬、香米飯（下單前確認完全不辣）。",
+        evaluation: "本地居民與自由行饕客口碑推薦，評分穩定，衛生良好。",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=紅牙象傣味餐廳+景洪",
+        searchUrl: "https://www.google.com/search?tbm=isch&q=紅牙象傣味餐廳+景洪"
+      },
+      {
+        name: "波濤保傣家竹樓餐廳",
+        categoryTag: "🎋 傳統傣族料理備選",
+        dateTag: "市區自由替換備選",
+        feature: "竹樓建築特色濃厚，傳統傣味技法，適合想體驗傳統傣族木樓用餐氛圍的旅客。",
+        mustOrder: "香茅烤羅非魚（全熟免辣）、包燒鮮菌菇、手撕雞、紫米飯。",
+        evaluation: "傳統老牌傣家竹樓，環境質樸自然。",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=波濤保傣家竹樓+景洪",
+        searchUrl: "https://www.google.com/search?tbm=isch&q=波濤保傣家竹樓+景洪"
+      },
+      {
+        name: "菌公主 ‧ 野生菌火鍋",
+        categoryTag: "🍲 雲南山珍鮮甜湯鍋",
+        dateTag: "Day 6 跨年晚餐（二選一）",
+        feature: "想吃雲南天然野生菌菇首選！文火慢熬土雞原汁金湯，湯頭鮮甜護胃，完全無辣。",
+        mustOrder: "當季野生菌菇拼盤（牛肝菌/竹蓀等）、原湯生態土雞鍋底、鮮菌手工麵條。",
+        evaluation: "服務人員嚴格計時（下鍋滾煮20分鐘歸零才掀蓋動筷），食用極為安全放心的名店。",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=菌公主野生菌火鍋+景洪",
+        searchUrl: "https://www.google.com/search?tbm=isch&q=菌公主野生菌火鍋+景洪"
+      },
+      {
+        name: "鮮菌王 ‧ 野生菌石鍋土雞",
+        categoryTag: "🍲 鮮甜滋補湯鍋（備選）",
+        dateTag: "Day 6 跨年晚餐（二選一）",
+        feature: "與菌公主同屬景洪野生菌湯鍋第一梯隊，以石鍋慢燉與原汁鮮醇著稱。",
+        mustOrder: "土雞菌菇原湯、松茸牛肝菌拼盤、青菜豆腐拼盤（不加任何辣油與辣椒）。",
+        evaluation: "美團／攜程常年高評分，野生菌來源正規清晰，充分煮透食用。",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=鮮菌王野生菌火鍋+景洪",
+        searchUrl: "https://www.google.com/search?tbm=isch&q=鮮菌王野生菌火鍋+景洪"
+      },
+      {
+        name: "喃傣手抓飯 ‧ 孔雀宴",
+        categoryTag: "🦚 民族風情孔雀宴首選",
+        dateTag: "Day 7 元旦午餐",
+        feature: "想拍照打卡、體驗少數民族華麗孔雀盛宴首選！以孔雀開屏造型驚艷上桌。",
+        mustOrder: "雙人精選孔雀宴套餐（含烤雞、香茅魚、菠蘿飯、五色糯米飯，務必註記完全無辣全熟）。",
+        evaluation: "景洪極具代表性之手抓飯名店，建議預訂時先確認雙人套餐份量與表演安排。",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=喃傣手抓飯+景洪",
+        searchUrl: "https://www.google.com/search?tbm=isch&q=喃傣手抓飯+孔雀宴"
+      },
+      {
+        name: "傣王府 ‧ 孔雀宴",
+        categoryTag: "🦚 孔雀宴備選方案",
+        dateTag: "Day 7 元旦午餐（備選）",
+        feature: "若喃傣當日雙人席位訂滿或無合適套餐時的理想替代，同樣主打少數民族盛宴儀式感。",
+        mustOrder: "雙人特色孔雀宴拼盤、原味烤肉、熱蒸雜糧、熟時蔬。",
+        evaluation: "大眾點評民族特色推薦餐廳，兩家孔雀宴擇一享用即可，不重複安排。",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=傣王府孔雀宴+景洪",
+        searchUrl: "https://www.google.com/search?tbm=isch&q=傣王府孔雀宴+景洪"
+      },
+      {
+        name: "泰傣餐廳（西雙版納洲際度假酒店）",
+        categoryTag: "🥥 泰式與東南亞融合料理",
+        dateTag: "Day 8 出發前備選",
+        feature: "五星洲際度假酒店親自主理，環境優雅靜謐，適合換換口味或返程前享受精緻盛宴。",
+        mustOrder: "泰式清蒸檸檬魚（要求不辣）、椰汁雞肉湯、泰式菠蘿炒飯、芒果糯米飯。",
+        evaluation: "五星國際酒店衛生與服務規格，非米其林認證但品質極穩定；前往前確認最新菜單。",
+        mapsUrl: "https://maps.google.com/?cid=5082672164066510657&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ",
+        searchUrl: "https://www.google.com/search?tbm=isch&q=西雙版納洲際泰傣餐廳"
+      },
+      {
+        name: "婉泰 ‧ 甜品飲料（告莊旗艦店等）",
+        categoryTag: "🍧 熱帶甜品飲料首選",
+        dateTag: "Day 1 夜市搭配",
+        feature: "版納現象級甜品店！招牌東南亞與傣味甜點，逛星光夜市的絕佳搭配。",
+        mustOrder: "招牌泡魯達（椰奶香濃）、椰奶凍、老撾冰咖啡、泰式奶茶、新鮮芒果熱帶水果飲。",
+        evaluation: "告莊有多家分店，可要求少冰或去冰；適合正餐後散步作為甜點品嚐。",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=婉泰甜品+告莊西雙景",
+        searchUrl: "https://www.google.com/search?tbm=isch&q=版納婉泰泡魯達"
+      },
+      {
+        name: "江邊景洪夜市 ‧ 現烤攤位",
+        categoryTag: "🍢 在地燒烤與夜宵首選",
+        dateTag: "Day 3 傍晚至夜間",
+        feature: "市民日常氣息濃郁的沿江夜市，現點現烤，體驗版納夜市煙火氣息。",
+        mustOrder: "現烤烤五花肉、烤豬頸肉、香烤熟魚（務必要求店家完全不刷辣醬、不撒辣椒粉）。",
+        evaluation: "非單一店家，夜市價格差異大，建議先看清攤位價目表再點餐，選全熟熱燙攤位。",
+        mapsUrl: "https://maps.google.com/?cid=9979385348757758853&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ",
+        searchUrl: "https://www.google.com/search?tbm=isch&q=西雙版納江邊夜市+燒烤"
+      }
+    ];
+
+    // 出發前待確認清單
+    const bookingChecklist = [
+      { id: "c1", text: "確認 2026/12/26（六）– 2027/01/02（六）往返航班直飛起降時間。" },
+      { id: "c2", text: "預訂景洪 5 晚住宿（建議告莊周邊方便步行夜市）及景邁山 2 晚茶村民宿。" },
+      { id: "c3", text: "確認景洪往返景邁山 3 天專車包車，確認後車廂行李空間與山路安全。" },
+      { id: "c4", text: "確認曼飛龍烤雞、紅牙象、菌菇火鍋（菌公主/鮮菌王）與孔雀宴的營業時間與分店位置。" },
+      { id: "c5", text: "提前致電餐廳告知「完全不辣、不吃生食、食材全熟」的嚴格要求。" },
+      { id: "c6", text: "出發前向景邁山民宿確認能提供無辣、全熟的家常熱菜（清燉雞湯/時蔬）。" },
+      { id: "c7", text: "確認星光夜市及江邊景洪夜市當日開放狀況。" },
+      { id: "c8", text: "查詢 2026/2027 跨年夜官方公告的活動動線與交通管制安排。" },
+      { id: "c9", text: "確認景邁山古茶林導覽、茶體驗預約及接送細節。" },
+      { id: "c10", text: "出發前在大眾點評／美團查看近期帶圖評價、最新菜單與實際價格。" }
+    ];
+
+    // 隨身裝備與打包清單
+    const packingChecklist = [
+      { id: "p1", text: "【禦寒薄羽絨/防風外套】景邁山茶山清晨看雲海與夜間僅 8℃～12℃，必備洋蔥式保暖外套。" },
+      { id: "p2", text: "【防滑平底健走鞋】古茶林木棧道與村寨青石板晨露微濕，防滑鞋保護膝蓋安全。" },
+      { id: "p3", text: "【草本防蚊液】熱帶植物園與千年古茶林植被茂密，隨身防熱帶蚊蟲。" },
+      { id: "p4", text: "【防曬與保濕】墨鏡、遮陽帽、高係數防曬乳、保濕護唇膏（西南冬季紫外線強且較乾燥）。" },
+      { id: "p5", text: "【大容量行動電源】茶山整天拍照錄影與跨年夜散步攝影之電力備援。" },
+      { id: "p6", text: "【證件與金融】身分證件／台胞證正本、微信支付與支付寶綁定確認。" }
+    ];
+
+    let currentDay = 1;
+
+    // 初始化頂部天數切換標籤
+    function initDateTabs() {
+      const container = document.getElementById('dateTabContainer');
+      container.innerHTML = '';
+      itineraryData.forEach(item => {
+        const btn = document.createElement('button');
+        btn.id = `dateTab-${item.day}`;
+        btn.className = `flex-shrink-0 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 flex flex-col items-center ${
+          item.day === currentDay 
+            ? 'bg-amber-400 text-stone-900 shadow-md font-bold scale-105' 
+            : 'bg-emerald-950/60 text-emerald-200 hover:bg-emerald-800'
+        }`;
+        btn.onclick = () => selectDay(item.day);
+        
+        btn.innerHTML = `
+          <span class="text-[11px] leading-tight">Day ${item.day}</span>
+          <span class="text-[10px] opacity-80 font-normal font-mono">${item.shortDate}</span>
+        `;
+        container.appendChild(btn);
+      });
+    }
+
+    // 切換天數
+    function selectDay(dayNum) {
+      currentDay = dayNum;
+      switchMainTab('itinerary');
+
+      itineraryData.forEach(item => {
+        const tab = document.getElementById(`dateTab-${item.day}`);
+        if (tab) {
+          if (item.day === dayNum) {
+            tab.className = 'flex-shrink-0 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 flex flex-col items-center bg-amber-400 text-stone-900 shadow-md font-bold scale-105';
+            tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          } else {
+            tab.className = 'flex-shrink-0 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 flex flex-col items-center bg-emerald-950/60 text-emerald-200 hover:bg-emerald-800';
+          }
+        }
+      });
+
+      renderDayDetails(dayNum);
+    }
+
+    // 渲染當日行程
+    function renderDayDetails(dayNum) {
+      const dayData = itineraryData.find(d => d.day === dayNum);
+      if (!dayData) return;
+
+      // 概覽
+      const overviewEl = document.getElementById('dayOverviewCard');
+      overviewEl.innerHTML = `
+        <div class="flex items-center justify-between border-b border-stone-200/70 pb-2 mb-2">
+          <div class="flex items-center gap-2">
+            <span class="bg-emerald-900 text-amber-300 text-xs px-2.5 py-0.5 rounded-full font-bold">DAY ${dayData.day}</span>
+            <span class="text-xs font-semibold text-stone-600 font-mono">${dayData.date}</span>
+          </div>
+          <span class="text-xs font-medium text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/60">${dayData.city}</span>
+        </div>
+        <h2 class="text-base font-extrabold text-stone-900 leading-snug">${dayData.title}</h2>
+        <p class="text-xs text-stone-600 mt-1.5 leading-relaxed bg-stone-50 p-2.5 rounded-xl border border-stone-200/60">
+          <span class="font-semibold text-emerald-900">今日節奏：</span>${dayData.pace}
+        </p>
+      `;
+
+      // 時間軸節點
+      const timelineEl = document.getElementById('timelineEventsContainer');
+      timelineEl.innerHTML = '';
+
+      dayData.timeline.forEach((item, index) => {
+        const itemCard = document.createElement('div');
+        itemCard.className = 'flex items-start gap-3';
+
+        const heritageBadge = item.isWorldHeritage 
+          ? `<div class="mb-1.5 inline-block">
+               <span class="bg-amber-100 text-amber-900 border border-amber-300 text-[11px] font-bold px-2 py-0.5 rounded-full badge-shadow flex items-center gap-1">
+                 🏛️ UNESCO 世界文化遺產
+               </span>
+             </div>` 
+          : '';
+
+        const customBadge = item.badge 
+          ? `<div class="mb-1 inline-block"><span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-medium px-2 py-0.5 rounded">${item.badge}</span></div>` 
+          : '';
+
+        const restTag = item.restaurantTag 
+          ? `<div class="mb-1.5 inline-block"><span class="bg-rose-50 text-rose-800 border border-rose-200 text-[10px] font-bold px-2 py-0.5 rounded-full">${item.restaurantTag}</span></div>` 
+          : '';
+
+        const dishInfo = item.signatureDish 
+          ? `<div class="mt-2 text-xs bg-amber-50/70 p-2 rounded-lg border border-amber-200/60 text-amber-950">
+               <span class="font-bold">餐飲推薦與特色：</span>${item.signatureDish}
+             </div>` 
+          : '';
+
+        const trafficInfo = item.transport 
+          ? `<div class="text-[11px] text-stone-500 flex items-center gap-1 mt-1">
+               <span>🚗 交通方案：</span><span class="font-medium text-stone-700">${item.transport}</span>
+             </div>` 
+          : '';
+
+        const stairInfo = item.stairs 
+          ? `<div class="text-[11px] text-stone-500 flex items-center gap-1 mt-0.5">
+               <span>🧗 台階強度：</span><span class="text-stone-700">${item.stairs}</span>
+             </div>` 
+          : '';
+
+        // 僅當有合法真實圖片才顯示 img
+        const imageBlock = (item.photoUrl && item.photoUrl.trim() !== '')
+          ? `<div class="mt-2.5 rounded-xl overflow-hidden border border-stone-200 shadow-sm max-h-44 bg-stone-100">
+               <img src="${item.photoUrl}" alt="${item.name}" class="w-full h-40 object-cover" loading="lazy" onerror="this.parentElement.remove();" />
+             </div>`
+          : '';
+
+        itemCard.innerHTML = `
+          <div class="w-8 h-8 rounded-full bg-emerald-800 text-amber-300 font-mono text-[11px] font-bold flex items-center justify-center flex-shrink-0 shadow-md ring-4 ring-white mt-0.5">
+            ${index + 1}
+          </div>
+
+          <div class="flex-1 bg-white p-3.5 rounded-2xl border border-stone-200/90 shadow-sm space-y-1.5">
+            <div class="flex items-center justify-between text-xs text-stone-500 font-medium">
+              <span class="bg-stone-100 text-stone-700 px-2 py-0.5 rounded font-mono font-semibold">${item.time}</span>
+              <span>停留：${item.duration}</span>
+            </div>
+
+            ${heritageBadge}
+            ${customBadge}
+            ${restTag}
+
+            <h3 class="text-sm font-bold text-stone-900 leading-snug">${item.name}</h3>
+            
+            <p class="text-xs text-stone-600 leading-relaxed">${item.desc}</p>
+
+            ${dishInfo}
+            ${trafficInfo}
+            ${stairInfo}
+            ${imageBlock}
+
+            <div class="pt-2 flex flex-wrap gap-2 text-xs border-t border-stone-100 mt-2">
+              <a href="${item.mapsUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 hover:bg-emerald-100 font-medium transition border border-emerald-200/80">
+                <span>📍 Google Maps 地點</span>
+              </a>
+              <a href="${item.searchPhotoUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 font-medium transition border border-stone-200">
+                <span>📷 查看實景照片</span>
+              </a>
+            </div>
+          </div>
+        `;
+        timelineEl.appendChild(itemCard);
+      });
+
+      // 交通方案卡片
+      const transportEl = document.getElementById('dayTransportCard');
+      transportEl.innerHTML = `
+        <h3 class="text-xs font-bold text-stone-900 uppercase tracking-wider mb-2 flex items-center gap-1">
+          <span>🚕 當日交通模式與景點間費用計算</span>
+        </h3>
+        <div class="space-y-2 text-xs">
+          <div class="p-2.5 rounded-xl bg-emerald-50/70 border border-emerald-200/70">
+            <span class="font-bold text-emerald-950">包車／叫車建議方案（推薦）：</span>
+            <p class="text-stone-700 mt-0.5">${dayData.transportPlan.recommended}</p>
+          </div>
+          <div class="p-2.5 rounded-xl bg-stone-50 border border-stone-200 text-stone-500">
+            <span class="font-bold text-stone-600">大眾運輸對比：</span>
+            <p class="mt-0.5 text-[11px]">${dayData.transportPlan.contrast}</p>
+          </div>
+          <div class="bg-stone-900 text-amber-300 p-2 rounded-xl text-center font-semibold text-xs">
+            ${dayData.transportPlan.summary}
+          </div>
+        </div>
+      `;
+
+      // 住宿與周邊
+      const stayEl = document.getElementById('dayStayCard');
+      const searchSupermarket = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(dayData.hotel + ' 周邊超市')}`;
+      const searchLaundry = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(dayData.hotel + ' 周邊洗衣店')}`;
+      stayEl.innerHTML = `
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-xs font-bold text-stone-900 flex items-center gap-1">
+            <span>🏨 當日下榻住宿安排</span>
+          </h3>
+          <span class="text-[10px] text-emerald-700 font-medium">舒適放鬆</span>
+        </div>
+        <p class="text-xs font-semibold text-stone-800">${dayData.hotel}</p>
+        <div class="flex gap-2 mt-2 pt-2 border-t border-stone-100 text-xs">
+          <a href="${searchSupermarket}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-1.5 px-2 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200 transition font-medium">
+            🛒 搜尋住宿周邊超市
+          </a>
+          <a href="${searchLaundry}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-1.5 px-2 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200 transition font-medium">
+            🧺 搜尋住宿周邊洗衣店
+          </a>
+        </div>
+      `;
+
+      // 備案與叮嚀
+      const alertsEl = document.getElementById('dayAlertsCard');
+      alertsEl.innerHTML = `
+        <div class="p-2.5 rounded-xl bg-blue-50/70 border border-blue-200/70 text-xs">
+          <span class="font-bold text-blue-900 flex items-center gap-1">
+            <span>☔ 天候／體能彈性備案：</span>
+          </span>
+          <p class="text-stone-700 mt-1 leading-relaxed">${dayData.contingency}</p>
+        </div>
+
+        <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/70 text-xs">
+          <span class="font-bold text-amber-950 flex items-center gap-1">
+            <span>⚠️ 飲食安全與預約叮嚀：</span>
+          </span>
+          <p class="text-stone-700 mt-1 leading-relaxed">${dayData.notice}</p>
+        </div>
+      `;
+    }
+
+    // 渲染餐廳指南
+    function renderRestaurants() {
+      const listContainer = document.getElementById('restaurantCardsList');
+      listContainer.innerHTML = '';
+
+      restaurantsData.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'glass-card rounded-2xl p-4 shadow-sm border border-stone-200/80 space-y-2';
+        card.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
+              ${item.categoryTag}
+            </span>
+            <span class="text-[11px] font-mono text-stone-500">${item.dateTag}</span>
+          </div>
+          <h3 class="text-sm font-bold text-stone-900">${item.name}</h3>
+          <p class="text-xs text-stone-600 leading-relaxed">${item.feature}</p>
+          
+          <div class="p-2 rounded-xl bg-amber-50 border border-amber-200/70 text-xs text-amber-950">
+            <span class="font-bold">必點與點餐提醒（完全不辣）：</span>
+            <p class="mt-0.5">${item.mustOrder}</p>
+          </div>
+
+          <div class="p-2 rounded-xl bg-stone-50 border border-stone-200 text-[11px] text-stone-600">
+            <span class="font-bold text-stone-800">平台評估客觀備註：</span>
+            <p class="mt-0.5">${item.evaluation}</p>
+          </div>
+
+          <div class="pt-1 flex flex-wrap gap-2 text-xs">
+            <a href="${item.mapsUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm transition font-medium">
+              <span>📍 Google Maps 查看位置</span>
+            </a>
+            <a href="${item.searchUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200 transition font-medium">
+              <span>📷 查看餐廳圖片</span>
+            </a>
+          </div>
+        `;
+        listContainer.appendChild(card);
+      });
+    }
+
+    // 渲染檢查清單
+    function renderChecklists() {
+      const bookingBox = document.getElementById('bookingChecklist');
+      const packingBox = document.getElementById('packingChecklist');
+
+      bookingBox.innerHTML = '';
+      packingBox.innerHTML = '';
+
+      bookingChecklist.forEach(item => {
+        const isChecked = localStorage.getItem('trip_chk_banna_' + item.id) === 'true';
+        const label = document.createElement('label');
+        label.className = 'flex items-start gap-2.5 p-2 rounded-xl bg-stone-50 hover:bg-stone-100 cursor-pointer text-xs border border-stone-200/70 transition';
+        label.innerHTML = `
+          <input type="checkbox" id="${item.id}" ${isChecked ? 'checked' : ''} onchange="toggleCheck('banna_${item.id}')" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+          <span class="text-stone-700 leading-snug ${isChecked ? 'line-through text-stone-400' : ''}">${item.text}</span>
+        `;
+        bookingBox.appendChild(label);
+      });
+
+      packingChecklist.forEach(item => {
+        const isChecked = localStorage.getItem('trip_chk_banna_' + item.id) === 'true';
+        const label = document.createElement('label');
+        label.className = 'flex items-start gap-2.5 p-2 rounded-xl bg-stone-50 hover:bg-stone-100 cursor-pointer text-xs border border-stone-200/70 transition';
+        label.innerHTML = `
+          <input type="checkbox" id="${item.id}" ${isChecked ? 'checked' : ''} onchange="toggleCheck('banna_${item.id}')" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+          <span class="text-stone-700 leading-snug ${isChecked ? 'line-through text-stone-400' : ''}">${item.text}</span>
+        `;
+        packingBox.appendChild(label);
+      });
+    }
+
+    function toggleCheck(key) {
+      const rawId = key.replace('banna_', '');
+      const cb = document.getElementById(rawId);
+      if (cb) {
+        localStorage.setItem('trip_chk_' + key, cb.checked);
+        renderChecklists();
+      }
+    }
+
+    // 分頁切換
+    function switchMainTab(tabName) {
+      const views = ['itinerary', 'food', 'checklist', 'features', 'weather'];
+      views.forEach(v => {
+        const viewEl = document.getElementById(v + 'View');
+        if (viewEl) {
+          if (v === tabName) {
+            viewEl.classList.remove('hidden');
+          } else {
+            viewEl.classList.add('hidden');
+          }
+        }
+
+        const navBtn = document.getElementById('navBtn-' + v);
+        if (navBtn) {
+          if (v === tabName) {
+            navBtn.className = 'flex flex-col items-center justify-center py-1 text-emerald-800 transition font-bold scale-105';
+          } else {
+            navBtn.className = 'flex flex-col items-center justify-center py-1 text-stone-400 hover:text-emerald-700 transition font-medium';
+          }
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 預算彈窗
+    function openBudgetModal() {
+      const modal = document.getElementById('budgetModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeBudgetModal() {
+      const modal = document.getElementById('budgetModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('budgetModal');
+      if (event.target === modal) {
+        closeBudgetModal();
+      }
+    }
+
+    window.onload = function() {
+      initDateTabs();
+      renderDayDetails(1);
+      renderRestaurants();
+      renderChecklists();
+    };
+  </script>
+</body>
+</html>
